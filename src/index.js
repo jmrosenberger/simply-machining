@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { SimplyMachining } from './components/SimplyMachining.js';
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
     <SimplyMachining />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

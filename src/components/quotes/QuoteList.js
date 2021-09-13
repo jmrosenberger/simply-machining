@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import "./Quotes.css"
 
 export const Quotes = () => {
     const [quotes, updateQuotes] = useState([])
