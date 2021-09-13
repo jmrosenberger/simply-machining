@@ -1,21 +1,34 @@
 import React from "react"
-import { UserList } from "./appUsers/UserList"
-import { Quotes } from "./quotes/QuoteList"
-import { Requests } from "./requests/Requests"
+import { Route, Redirect } from "react-router-dom"
+import { ApplicationViews } from "./ApplicationViews"
+import { Login } from "./auth/Login"
+import { Register } from "./auth/Register"
+import { NavBar } from "./nav/NavBar"
 
-export const SimplyMachining = () => {
 
-
-    return (
-        <>
-        <h1>Simply Machining</h1>
-        <h2>User List</h2>
-        <UserList />
-        <h2>Requests</h2>
-        <Requests />
-        <h2>Quotes</h2>
-        <Quotes />
-
-        </>
-    )
-}
+export const SimplyMachining = () => (
+    <>
+      <Route
+        render={() => {
+          if (localStorage.getItem("machining_user")) {
+            return (
+              <>
+                <NavBar />
+                <ApplicationViews />
+              </>
+            );
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+  
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route path="/register">
+        <Register />
+      </Route>
+    </>
+  );
+  
