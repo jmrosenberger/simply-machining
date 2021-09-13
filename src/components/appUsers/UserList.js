@@ -10,7 +10,7 @@ export const UserList = () => {
                 .then(
                     (users) => {
                         assignUsers(users)
-                     }
+                    }
                 )
         },
         []
@@ -18,14 +18,28 @@ export const UserList = () => {
 
     return (
         <>
+            <div className="profile__container">
+                <h4><u>My Profile</u></h4>
 
-        {
-            users.map(
-                (user) => { 
-                  return  <h4 key={user.id}> {user.name}</h4>
+                {
+                    users.map(
+                        (user) => {
+                            if (user.id === parseInt(localStorage.getItem("machining_user"))) {
+                                return <div key={user.id}>
+                                <ul>
+                                <h4 key={user.id}>Name: {user.name}</h4>
+
+                                    <li><b>Email</b>: {user.email}</li><br/>
+                                    <li><b>Address</b>: {user.address}</li><br/>
+                                    <li><b>Phone</b>: {user.phone}</li><br/>
+                                   </ul>
+                                   </div>
+
+                            }
+                        }
+                    )
                 }
-            )
-        }
+            </div>
         </>
     )
 }

@@ -71,7 +71,7 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset>
                     <label htmlFor="phone"> Phone Number </label>
-                    <input onChange={updateUser} type="number" id="phoneNumber" className="form-control" placeholder="Phone Number" required />
+                    <input onChange={updateUser} type="number" id="phone" className="form-control" placeholder="Phone Number" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>
