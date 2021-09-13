@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { SimplyMachining } from './components/SimplyMachining.js';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SimplyMachining />
   </React.StrictMode>,
   document.getElementById('root')
 );
