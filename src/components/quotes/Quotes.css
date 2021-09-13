@@ -1,0 +1,22 @@
+.emergency {
+    background-color: lightcoral;
+    margin-right: 1.5rem;
+}
+
+.createTicket {
+    margin: 3rem 1rem;
+    background-color: lightgoldenrodyellow;
+    color: rgb(84, 114, 25);
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+hr.dotted {
+    border-top: 2px dotted #bbb;
+    margin: 1rem 4rem;
+  }
+
+.quotes__list {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
