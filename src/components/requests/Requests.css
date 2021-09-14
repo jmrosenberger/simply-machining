@@ -1,0 +1,12 @@
+hr.dotted {
+    border-top: 2px dotted #bbb;
+    margin: 1rem 4rem;
+    border: 1px solid olivedrab;
+  }
+
+.delete__request {
+  margin-left: 2.5rem;
+  background-color: olivedrab;
+  color: goldenrod;
+  border-radius: 4px;
+}
