@@ -22,7 +22,8 @@ export const Requests = () => {
             {
                 requests.map(
                     (request) => {
-                        return <div key={request.id} className="requests__list">
+                        if (request.user.id === parseInt(localStorage.getItem("machining_user"))) {
+                            return <div key={request.id} className="requests__list">
                             <ul>
                                 <h4 key={request.id}>Request# {request.id}</h4>
                                 Requested By: {request.user.name}<br />
@@ -30,6 +31,9 @@ export const Requests = () => {
                                 Description: {request.description}<br />
                                 Date Requested: {request.dateRequested}</ul>
                         </div>
+
+                        }
+                        
                     }
                 )
             }

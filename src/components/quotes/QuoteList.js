@@ -23,7 +23,8 @@ export const Quotes = () => {
             {
                 quotes.map(
                     (quote) => {
-                        return <div key={quote.id} className="quotes__list">
+                        if (quote.user.id === parseInt(localStorage.getItem("machining_user"))) {
+                            return <div key={quote.id} className="quotes__list">
                             <ul>
                                 <h4 key={quote.id}>Quote# {quote.id}</h4>
                                 Quoted By: {quote.user.name}<br/>                { /* admin name */ }
@@ -35,6 +36,9 @@ export const Quotes = () => {
                                 Date Completed: {quote.dateCompleted}
                             </ul>
                         </div>
+
+                        }
+                        
                     }
                 )
             }
