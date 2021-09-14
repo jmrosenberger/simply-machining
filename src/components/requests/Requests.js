@@ -18,14 +18,15 @@ export const Requests = () => {
 
     return (
         <>
-
+            <h3>Current Requests</h3>
             {
                 requests.map(
                     (request) => {
-                        if (request.user.id === parseInt(localStorage.getItem("machining_user"))) {
+                        if (request.user.id === parseInt(localStorage.getItem("machining_user")) 
+                        || parseInt(localStorage.getItem("machining_user")) === 1) {
                             return <div key={request.id} className="requests__list">
                             <ul>
-                                <h4 key={request.id}>Request# {request.id}</h4>
+                                <h4 key={request.id}>Request Id# {request.id}</h4>
                                 Requested By: {request.user.name}<br />
                                 Material: {request.material}<br />
                                 Description: {request.description}<br />
