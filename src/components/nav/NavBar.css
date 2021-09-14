@@ -1,15 +1,24 @@
 .navbar {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    align-items: center;
+    height: 1rem;
+    font-size: small;
 }
 
 .navbar__container {
-    border: 4px solid olivedrab;
+    border: 2px solid olivedrab;
     background-color: rgb(211, 160, 30, .50);
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+}
+
+.navbar__logo {
+    margin-left: -1rem;
+    margin-right: 1rem;
+
 }

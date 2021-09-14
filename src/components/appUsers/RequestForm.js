@@ -37,7 +37,7 @@ export const RequestForm = () => {
             <h2 className="requestForm__title">Request A Quote</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="material">Material:</label>
+                    <label for="material">Material:</label>
                     <input
                         onChange={
                             (event) => {
@@ -46,6 +46,8 @@ export const RequestForm = () => {
                                 updateRequest(copy)
                             }
                         }
+                        id="material"
+                        name="material"
                         required autoFocus
                         type="text"
                         className="form-control form__material"
@@ -55,7 +57,7 @@ export const RequestForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Description of Request:</label>
+                    <label for="description">Description of Request:</label>
                     <textarea
                         onChange={
                             (event) => {
@@ -64,6 +66,8 @@ export const RequestForm = () => {
                                 updateRequest(copy)
                             }
                         }
+                        id="description"
+                        name="description"
                         required 
                         type="text"
                         className="form-control form__request"
