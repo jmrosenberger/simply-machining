@@ -29,6 +29,7 @@ export const UserList = () => {
                                 <ul>
                                 <h4 key={user.id}>Name: {user.name}</h4>
 
+                                    <li><b>User Id#</b>: {user.id}</li><br/>
                                     <li><b>Email</b>: {user.email}</li><br/>
                                     <li><b>Address</b>: {user.address}</li><br/>
                                     <li><b>Phone</b>: {user.phone}</li><br/>
