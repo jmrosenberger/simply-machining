@@ -22,3 +22,21 @@
     margin-right: 1rem;
 
 }
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px goldenrod, 0 0 40px goldenrod, 0 0 50px goldenrod, 0 0 60px goldenrod, 0 0 70px goldenrod;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px olivedrab, 0 0 40px olivedrab, 0 0 50px olivedrab, 0 0 60px olivedrab, 0 0 70px olivedrab, 0 0 80px olivedrab;
+    }
+  }
