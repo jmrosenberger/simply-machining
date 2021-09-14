@@ -1,9 +1,12 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { UserList } from "./appUsers/UserList"
+import { About } from "./footer/About"
+import { Contact } from "./footer/Contact"
 import { HomePage } from "./nav/Home"
 import { Quotes } from "./quotes/QuoteList"
 import { Requests } from "./requests/Requests"
+
 
 
 
@@ -22,6 +25,13 @@ export const ApplicationViews = () => {
             <Route exact path="/quotes">
                 <Quotes />
             </Route>
+            <Route exact path="/About">
+                <About />
+            </Route>
+            <Route exact path="/Contact">
+                <Contact />
+            </Route>
+            
 
         </>
     )

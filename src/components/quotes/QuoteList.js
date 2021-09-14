@@ -19,7 +19,7 @@ export const Quotes = () => {
 
     return (
         <>
-
+            <h3>Quote List</h3>
             {
                 quotes.map(
                     (quote) => {

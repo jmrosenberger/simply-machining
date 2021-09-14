@@ -1,0 +1,27 @@
+.footer__container {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border: 2px solid olivedrab;
+    background-color: rgb(211, 160, 30, .50);
+    color: olivedrab;
+    text-align: center;
+    font-size: smaller;
+    align-items: center;
+  }
+
+.footer__logo {
+      font-size: xx-small;
+}
+
+.github__link img {
+      display: inline-block;
+      padding-right: 5px;
+}
+
+.copyright {
+    font-size: xx-small;
+}
