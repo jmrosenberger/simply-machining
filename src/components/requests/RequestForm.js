@@ -31,10 +31,12 @@ export const RequestForm = () => {
             history.push("/requests")
         })
     }
+    
 
     return (
         <form className="requestForm">
-            <h2 className="requestForm__title">Request A Quote</h2>
+           
+            <div className="requestQuoteForm">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="material">Material:</label>
@@ -79,6 +81,7 @@ export const RequestForm = () => {
             <button className="btn btn-primary" onClick={submitRequest}>
                 Submit Request
             </button>
+        </div>
         </form>
     )
 }

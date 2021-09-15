@@ -5,6 +5,7 @@ import { About } from "./footer/About"
 import { Contact } from "./footer/Contact"
 import { HomePage } from "./nav/Home"
 import { Quotes } from "./quotes/QuoteList"
+import { RequestForm } from "./requests/RequestForm"
 import { Requests } from "./requests/Requests"
 
 
@@ -13,7 +14,10 @@ import { Requests } from "./requests/Requests"
 export const ApplicationViews = () => {
     return (
         <>
-            <Route exact path="/HomePage">
+            <Route exact path="/RequestForm">
+                <RequestForm />
+            </Route>
+            <Route exact path="/">
                 <HomePage />
             </Route>
             <Route exact path="/users">
@@ -31,7 +35,6 @@ export const ApplicationViews = () => {
             <Route exact path="/Contact">
                 <Contact />
             </Route>
-            
 
         </>
     )
