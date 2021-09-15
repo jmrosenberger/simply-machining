@@ -37,6 +37,7 @@ export const RequestForm = () => {
         <form className="requestForm">
            
             <div className="requestQuoteForm">
+                <h2>Input Data To Receive Quote</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="material">Material:</label>
