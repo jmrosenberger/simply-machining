@@ -8,9 +8,9 @@ export const NavBar = () => {
         <div className="navbar__container">
 
             <ul className="navbar">
-                <a href="/HomePage"> <img rel="logo" src="LogoMakr-3rgu1m.png" className="navbar__logo" width="41" height="45" /></a><br />
+                <a href="/"> <img rel="logo" src="LogoMakr-3rgu1m.png" className="navbar__logo" width="41" height="45" /></a><br />
                 <li className="navbar__item">
-                    <Link className="navbar__link" to="/HomePage">Home</Link>
+                    <Link className="navbar__link" to="/">Home</Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/requests">Requests</Link>
