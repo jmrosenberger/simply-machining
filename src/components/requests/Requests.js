@@ -38,8 +38,8 @@ export const Requests = () => {
             {
                 requests.map(
                     (request) => {
-                        if (request.user.id === parseInt(localStorage.getItem("machining_user"))
-                            || parseInt(localStorage.getItem("machining_user")) === 1) {
+                        console.log(request)
+                        if  (parseInt(localStorage.getItem("machining_user")) === 1) {
                             return <div key={request.id} className="requests__list">
                                 <hr className={`dotted`}></hr>
                                 <ul>
@@ -52,10 +52,30 @@ export const Requests = () => {
                                 onClick={() => {
                                     deleteRequest(request.id)
                                 }}>Delete Request</button>
+                                <button className="delete__request"
+                                onClick={() => {
+                                    deleteRequest(request.id)
+                                }}>Review Request</button>
                                 <hr className={`dotted`}></hr>
                             </div>
 
 
+                        } else if (request.user.id === parseInt(localStorage.getItem("machining_user"))) {
+                            return <div key={request.id} className="requests__list">
+                                <hr className={`dotted`}></hr>
+                                <ul>
+                                    <h4 key={request.id}>Request Id# {request.id}</h4>
+                                    Requested By: {request.user.name}<br />
+                                    Material: {request.material}<br />
+                                    Description: {request.description}<br />
+                                    Date Requested: {request.dateRequested}</ul>
+                                <button className="delete__request"
+                                onClick={() => {
+                                    deleteRequest(request.id)
+                                }}>Delete Request</button>
+                                
+                                <hr className={`dotted`}></hr>
+                            </div>
                         }
 
                     }
