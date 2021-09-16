@@ -18,7 +18,6 @@ export const RequestForm = () => {
             material: request.material,
             description: request.description,
             dateRequested: Date(),
-            priceQuoted: ""
         }
         const fetchOption = {
             method: "POST",
