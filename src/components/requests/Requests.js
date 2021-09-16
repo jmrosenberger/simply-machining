@@ -1,30 +1,61 @@
 import React, { useEffect, useState } from "react"
 import Modal from "react-modal"
+import { useHistory, useParams } from "react-router-dom"
 import "./Requests.css"
 
 Modal.setAppElement("#root")
 
 export const Requests = () => {
-    const [requests, updateRequests] = useState([])
-    const [quote, updateQuote] = useState([])
+    const [requests, updateRequests] = useState([
+
+    ])
+    const [priceQuote, updatePriceQuote] = useState(0)
+
     const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
 
     const toggleModal = () => {
         setIsOpen(!isOpen)
     }
-
+    const getRequestByUser = () => {
+       return fetch("http://localhost:3719/requests?_expand=user")
+        .then(res => res.json())
+        .then(
+            (requestsArray) => {
+                updateRequests(requestsArray)
+            }
+        )
+    }
     useEffect(
         () => {
-            fetch("http://localhost:3719/requests?_expand=user")
-                .then(res => res.json())
-                .then(
-                    (requestsArray) => {
-                        updateRequests(requestsArray)
-                    }
-                )
+           getRequestByUser()
         },
         []
     )
+    const history = useHistory()
+        
+    const submitQuotePrice = (event, requestObj) => {
+        event.preventDefault()
+        
+        const newQuotePrice = {
+            userId: requestObj.userId,
+            requestId: requestObj.id,
+            priceQuoted: priceQuote,
+            isAccepted: false,
+            isCompleted: false,
+            dateQuoted: Date.now()
+        }
+        const fetchOption = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newQuotePrice)
+        }
+        return fetch(`http://localhost:3719/quotes`, fetchOption)
+        .then(() => getRequestByUser())
+       
+    }
+
     const deleteRequest = (id) => {
         fetch(`http://localhost:3719/requests/${id}`, {
             method: "DELETE"
@@ -37,13 +68,13 @@ export const Requests = () => {
                     })
             })
     }
+    console.log(priceQuote)
     return (
         <>
             <h3>Current Requests</h3>
             {
                 requests.map(
                     (request) => {
-                        console.log(request)
                         if (parseInt(localStorage.getItem("machining_user")) === 1) {
                             return <div key={request.id} className="requests__list">
                                 <hr className={`dotted`}></hr>
@@ -60,7 +91,6 @@ export const Requests = () => {
                                 <div className="app">
                                     <button className="delete__request"
                                         onClick={toggleModal}>Review Request</button>
-
                                     <Modal
                                         isOpen={isOpen}
                                         onRequestClose={toggleModal}
@@ -75,21 +105,20 @@ export const Requests = () => {
                                                 <input 
                                                 onChange={
                                                     (event) => {
-                                                        const copy = {...quote}
-                                                        copy.price = event.target.value
-                                                        updateQuote(copy)
+                                                        updatePriceQuote(parseInt(event.target.value))
                                                     }
                                                 }
+                                                
                                                 type="number" 
-                                                value="currency" 
-                                                min="0.00" 
-                                                max="100000.00"
-                                                step="0.01"
+                                                value={requests.priceQuoted} 
                                                 placeholder="Enter quote price here"/>
                                             </fieldset>
                                         </form>
                                         <button onClick={toggleModal}>Close Modal</button>
-                                        <button>Submit Quote</button>
+                                        <button
+                                        className="submit__quote"
+                                        id={request.id}
+                                        onClick={(event) => submitQuotePrice(event, request)}>Submit Quote</button>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>

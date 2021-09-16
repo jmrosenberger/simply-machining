@@ -17,7 +17,8 @@ export const RequestForm = () => {
             userId: parseInt(localStorage.getItem("machining_user")),
             material: request.material,
             description: request.description,
-            dateRequested: Date()
+            dateRequested: Date(),
+            priceQuoted: ""
         }
         const fetchOption = {
             method: "POST",
