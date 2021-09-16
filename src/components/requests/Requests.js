@@ -37,12 +37,12 @@ export const Requests = () => {
         event.preventDefault()
         
         const newQuotePrice = {
-            userId: requestObj.userId,
+            userId: parseInt(localStorage.getItem("machining_user")),
             requestId: requestObj.id,
             priceQuoted: priceQuote,
             isAccepted: false,
             isCompleted: false,
-            dateQuoted: Date.now()
+            dateQuoted: Date()
         }
         const fetchOption = {
             method: "POST",
@@ -108,7 +108,6 @@ export const Requests = () => {
                                                         updatePriceQuote(parseInt(event.target.value))
                                                     }
                                                 }
-                                                
                                                 type="number" 
                                                 value={requests.priceQuoted} 
                                                 placeholder="Enter quote price here"/>
