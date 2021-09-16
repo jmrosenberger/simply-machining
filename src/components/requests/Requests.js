@@ -6,55 +6,54 @@ import "./Requests.css"
 Modal.setAppElement("#root")
 
 export const Requests = () => {
-    const [requests, updateRequests] = useState({
-        userId: "",
-        material: "",
-        description: "",
-        dateRequested: "",
-        priceQuoted: ""
-    })
-    
-    // const [ requestId ] = useParams()
+    const [requests, updateRequests] = useState([
+
+    ])
+    const [priceQuote, updatePriceQuote] = useState(0)
+
     const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
 
     const toggleModal = () => {
         setIsOpen(!isOpen)
     }
-
+    const getRequestByUser = () => {
+       return fetch("http://localhost:3719/requests?_expand=user")
+        .then(res => res.json())
+        .then(
+            (requestsArray) => {
+                updateRequests(requestsArray)
+            }
+        )
+    }
     useEffect(
         () => {
-            fetch("http://localhost:3719/requests?_expand=user")
-                .then(res => res.json())
-                .then(
-                    (requestsArray) => {
-                        updateRequests(requestsArray)
-                    }
-                )
+           getRequestByUser()
         },
         []
     )
     const history = useHistory()
         
-    const submitQuotePrice = (event) => {
+    const submitQuotePrice = (event, requestObj) => {
         event.preventDefault()
+        
         const newQuotePrice = {
-            userId: requests.userId,
-            material: requests.material,
-            description: requests.description,
-            dateRequested: requests.dateRequested,
-            priceQuoted: parseInt(event.target.value)
+            userId: requestObj.userId,
+            requestId: requestObj.id,
+            priceQuoted: priceQuote,
+            isAccepted: false,
+            isCompleted: false,
+            dateQuoted: Date.now()
         }
         const fetchOption = {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newQuotePrice)
         }
-        return fetch("http://localhost:3719/requests/", fetchOption)
-        .then(() => {
-            history.push("/requests")
-        })
+        return fetch(`http://localhost:3719/quotes`, fetchOption)
+        .then(() => getRequestByUser())
+       
     }
 
     const deleteRequest = (id) => {
@@ -69,13 +68,13 @@ export const Requests = () => {
                     })
             })
     }
+    console.log(priceQuote)
     return (
         <>
             <h3>Current Requests</h3>
             {
                 requests.map(
                     (request) => {
-                        console.log(request)
                         if (parseInt(localStorage.getItem("machining_user")) === 1) {
                             return <div key={request.id} className="requests__list">
                                 <hr className={`dotted`}></hr>
@@ -106,11 +105,10 @@ export const Requests = () => {
                                                 <input 
                                                 onChange={
                                                     (event) => {
-                                                        const copy = {...requests}
-                                                        copy.priceQuoted = event.target.value
-                                                        updateRequests(copy)
+                                                        updatePriceQuote(parseInt(event.target.value))
                                                     }
                                                 }
+                                                
                                                 type="number" 
                                                 value={requests.priceQuoted} 
                                                 placeholder="Enter quote price here"/>
@@ -119,7 +117,8 @@ export const Requests = () => {
                                         <button onClick={toggleModal}>Close Modal</button>
                                         <button
                                         className="submit__quote"
-                                        onClick={submitQuotePrice}>Submit Quote</button>
+                                        id={request.id}
+                                        onClick={(event) => submitQuotePrice(event, request)}>Submit Quote</button>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>
