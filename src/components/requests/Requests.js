@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react"
 import Modal from "react-modal"
+import { useHistory, useParams } from "react-router-dom"
 import "./Requests.css"
 
 Modal.setAppElement("#root")
 
 export const Requests = () => {
-    const [requests, updateRequests] = useState([])
-    const [quote, updateQuote] = useState([])
+    const [requests, updateRequests] = useState({
+        userId: "",
+        material: "",
+        description: "",
+        dateRequested: "",
+        priceQuoted: ""
+    })
+    
+    // const [ requestId ] = useParams()
     const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
 
     const toggleModal = () => {
@@ -25,6 +33,30 @@ export const Requests = () => {
         },
         []
     )
+    const history = useHistory()
+        
+    const submitQuotePrice = (event) => {
+        event.preventDefault()
+        const newQuotePrice = {
+            userId: requests.userId,
+            material: requests.material,
+            description: requests.description,
+            dateRequested: requests.dateRequested,
+            priceQuoted: parseInt(event.target.value)
+        }
+        const fetchOption = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newQuotePrice)
+        }
+        return fetch("http://localhost:3719/requests/", fetchOption)
+        .then(() => {
+            history.push("/requests")
+        })
+    }
+
     const deleteRequest = (id) => {
         fetch(`http://localhost:3719/requests/${id}`, {
             method: "DELETE"
@@ -60,7 +92,6 @@ export const Requests = () => {
                                 <div className="app">
                                     <button className="delete__request"
                                         onClick={toggleModal}>Review Request</button>
-
                                     <Modal
                                         isOpen={isOpen}
                                         onRequestClose={toggleModal}
@@ -75,21 +106,20 @@ export const Requests = () => {
                                                 <input 
                                                 onChange={
                                                     (event) => {
-                                                        const copy = {...quote}
-                                                        copy.price = event.target.value
-                                                        updateQuote(copy)
+                                                        const copy = {...requests}
+                                                        copy.priceQuoted = event.target.value
+                                                        updateRequests(copy)
                                                     }
                                                 }
                                                 type="number" 
-                                                value="currency" 
-                                                min="0.00" 
-                                                max="100000.00"
-                                                step="0.01"
+                                                value={requests.priceQuoted} 
                                                 placeholder="Enter quote price here"/>
                                             </fieldset>
                                         </form>
                                         <button onClick={toggleModal}>Close Modal</button>
-                                        <button>Submit Quote</button>
+                                        <button
+                                        className="submit__quote"
+                                        onClick={submitQuotePrice}>Submit Quote</button>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>
