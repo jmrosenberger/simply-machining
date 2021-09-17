@@ -4,7 +4,8 @@ import { UserList } from "./appUsers/UserList"
 import { About } from "./footer/About"
 import { Contact } from "./footer/Contact"
 import { HomePage } from "./nav/Home"
-import { Quotes } from "./quotes/QuoteList"
+import { QuoteList } from "./quotes/QuoteList"
+import { Quotes } from "./quotes/Quotes"
 import { RequestForm } from "./requests/RequestForm"
 import { Requests } from "./requests/Requests"
 
@@ -27,6 +28,9 @@ export const ApplicationViews = () => {
                 <Requests />
             </Route>
             <Route exact path="/quotes">
+                <QuoteList />
+            </Route>
+            <Route exact path="/quotes/:quoteId(\d+)">
                 <Quotes />
             </Route>
             <Route exact path="/About">

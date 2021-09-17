@@ -6,9 +6,7 @@ import "./Requests.css"
 Modal.setAppElement("#root")
 
 export const Requests = () => {
-    const [requests, updateRequests] = useState([
-
-    ])
+    const [requests, updateRequests] = useState([])
     const [priceQuote, updatePriceQuote] = useState(0)
 
     const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
