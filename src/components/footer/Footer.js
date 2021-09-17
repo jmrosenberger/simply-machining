@@ -19,7 +19,9 @@ export const Footer = () => {
                      Copyright © {currentYear} JMRosenberger All Rights Reserved
                 </p>
                 <p className="github__link">
-                    <a href="https://github.com/jmrosenberger" className="footer__link"><img src="GitHub-Mark-32px.png" width="15" height="15"/> GitHub</a>
+                    <a href="https://github.com/jmrosenberger" className="footer__link">
+                        <img src="GitHub-Mark-32px.png" alt="github_logo" width="15" height="15"/> 
+                        GitHub</a>
                 </p>
                 <p className="footer__logo">Created my logo at <a href="https://logomakr.com"> LogoMakr.com</a></p>
             </footer>
