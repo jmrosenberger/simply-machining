@@ -65,7 +65,8 @@ export const Quotes = () => {
             priceQuoted: quote.priceQuoted,
             dateQuoted: quote.dateQuoted,
             isAccepted: "Yes",
-            isCompleted: "Yes"
+            isCompleted: "Yes",
+            dateCompleted: Date()
         }
 
         // Perform the PUT HTTP request to replace the resource

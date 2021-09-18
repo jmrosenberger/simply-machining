@@ -51,6 +51,7 @@ export const Requests = () => {
         }
         return fetch(`http://localhost:3719/quotes`, fetchOption)
         .then(() => getRequestByUser())
+        
        
     }
 
@@ -111,11 +112,12 @@ export const Requests = () => {
                                                 placeholder="Enter quote price here"/>
                                             </fieldset>
                                         </form>
-                                        <button onClick={toggleModal}>Close Modal</button>
                                         <button
                                         className="submit__quote"
                                         id={request.id}
-                                        onClick={(event) => submitQuotePrice(event, request)}>Submit Quote</button>
+                                        onClick={(event) => submitQuotePrice(event, request)}
+                                        >Submit Quote</button>
+                                        <button onClick={toggleModal}>Cancel</button>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>
