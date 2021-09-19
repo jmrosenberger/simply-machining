@@ -95,13 +95,14 @@ export const Quotes = () => {
         if (parseInt(localStorage.getItem("machining_user")) === 1) {
             return <button className="complete__button"
                 id={quote.id}
-                disabled={quote.isAccepted !== "Yes"}
+                hidden={quote.isAccepted !== "Yes"}
                 onClick={() => {
                     completeQuote(quote.id)
                 }}>Job Completed</button>
         } else if (quote.request?.userId === parseInt(localStorage.getItem("machining_user"))) {
             return <button className="accept__button"
                 id={quote.id}
+                hidden={quote.isCompleted === "Yes" || quote.isAccepted === "Yes"}
                 onClick={() => {
                     acceptQuote(quote.id)
                 }}>Accept Quote
