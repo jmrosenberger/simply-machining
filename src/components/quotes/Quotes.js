@@ -31,7 +31,9 @@ export const Quotes = () => {
         []  // Empty dependency array only reacts to JSX initial rendering
     )
 
-    // Function to invoke when an quote price is accepted by customer as a result of clicking button
+
+    // ---- || Function to invoke when an quote price is accepted by customer as a result of clicking button || ---- \\
+
     const acceptQuote = () => {
 
         // Construct a new object to replace the existing one in the API
@@ -56,6 +58,8 @@ export const Quotes = () => {
                 history.push("/quotes")
             })
     }
+
+
     const completeQuote = () => {
 
         // Construct a new object to replace the existing one in the API
@@ -83,10 +87,15 @@ export const Quotes = () => {
     }
     console.log(quote)
 
+
+
+    // ---- || This function conditionally renders 2 different buttons depending on whether an admin or customer is logged in || ---- \\
+
     const QuoteButton = () => {
         if (parseInt(localStorage.getItem("machining_user")) === 1) {
             return <button className="complete__button"
                 id={quote.id}
+                disabled={quote.isAccepted !== "Yes"}
                 onClick={() => {
                     completeQuote(quote.id)
                 }}>Job Completed</button>
