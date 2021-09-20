@@ -3,11 +3,15 @@ import Modal from "react-modal"
 import { useHistory, useParams } from "react-router-dom"
 import "./Requests.css"
 
+
 Modal.setAppElement("#root")
 
 export const Requests = () => {
     const [requests, updateRequests] = useState([])
     const [priceQuote, updatePriceQuote] = useState(0)
+    const [quote, updateQuote] = useState({})
+
+
 
     const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
 
@@ -49,7 +53,7 @@ export const Requests = () => {
             },
             body: JSON.stringify(newQuotePrice)
         }
-        return fetch(`http://localhost:3719/quotes`, fetchOption)
+        return fetch(`http://localhost:3719/quotes?_expand=request`, fetchOption)
         .then(() => getRequestByUser())
         
        
@@ -67,22 +71,44 @@ export const Requests = () => {
                     })
             })
     }
+
+    
+
+    const getQuoteObject = () => {
+        return fetch("http://localhost:3719/quotes?_expand=request&_expand=user")
+        .then(res => res.json())
+        .then(
+            (quotesArray) => {
+                updateQuote(quotesArray)
+            }
+        )
+    }
+
+    useEffect(
+        () => {
+            getQuoteObject()
+        },
+        []
+    )
+
+
     console.log(priceQuote)
     return (
         <>
-            <h3>Current Requests</h3>
+            <h3 className="requests__header">Current Requests</h3>
             {
                 requests.map(
                     (request) => {
                         if (parseInt(localStorage.getItem("machining_user")) === 1) {
                             return <div key={request.id} className="requests__list">
                                 <hr className={`dotted`}></hr>
-                                <ul>
+                                <section>
                                     <h4 key={request.id}>Request Id# {request.id}</h4>
-                                    Requested By: {request.user.name}<br />
-                                    Material: {request.material}<br />
-                                    Description: {request.description}<br />
-                                    Date Requested: {request.dateRequested}</ul>
+                                    <div className="item__requestList"><b>Requested By:</b> {request.user.name}</div>
+                                    <div className="item__requestList"><b>Material:</b>  {request.material}</div>
+                                    <div className="item__requestList"><b>Description: </b> {request.description}</div>
+                                    <div className="item__requestList"><b>Date Requested: </b> {request.dateRequested}</div>
+                                </section>
                                 <button className="delete__request"
                                     onClick={() => {
                                         deleteRequest(request.id)
@@ -97,7 +123,7 @@ export const Requests = () => {
                                         className="mymodal"
                                         overlayClassName="myoverlay"
                                     >
-                                        <div>Input Quote Price</div>
+                                        <div className="heading__modal">Input Quote Price</div>
                                         <form>
                                             <fieldset>
                                                 <label htmlFor="Price">Quote Price: $</label>
@@ -107,6 +133,7 @@ export const Requests = () => {
                                                         updatePriceQuote(parseInt(event.target.value))
                                                     }
                                                 }
+                                                className="input__modal"
                                                 type="number" 
                                                 value={requests.priceQuoted} 
                                                 placeholder="Enter quote price here"/>
@@ -117,7 +144,7 @@ export const Requests = () => {
                                         id={request.id}
                                         onClick={(event) => submitQuotePrice(event, request)}
                                         >Submit Quote</button>
-                                        <button onClick={toggleModal}>Cancel</button>
+                                        <button className="cancel__quote" onClick={toggleModal}>Cancel</button>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>
@@ -125,13 +152,15 @@ export const Requests = () => {
                         } else if (request.user.id === parseInt(localStorage.getItem("machining_user"))) {
                             return <div key={request.id} className="requests__list">
                                 <hr className={`dotted`}></hr>
-                                <ul>
+                                <section>
                                     <h4 key={request.id}>Request Id# {request.id}</h4>
-                                    Requested By: {request.user.name}<br />
-                                    Material: {request.material}<br />
-                                    Description: {request.description}<br />
-                                    Date Requested: {request.dateRequested}</ul>
+                                    <div className="item__requestList"><b>Requested By:</b> {request.user.name}</div>
+                                    <div className="item__requestList"><b>Material:</b>  {request.material}</div>
+                                    <div className="item__requestList"><b>Description: </b> {request.description}</div>
+                                    <div className="item__requestList"><b>Date Requested: </b> {request.dateRequested}</div>
+                                </section>
                                 <button className="delete__request"
+
                                     onClick={() => {
                                         deleteRequest(request.id)
                                     }}>Delete Request</button>
