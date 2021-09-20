@@ -5,10 +5,20 @@ hr.dotted {
   }
 
 .delete__request {
-  margin-left: 2.5rem;
-  background-color: olivedrab;
-  color: goldenrod;
+  margin: 1rem 0;
+  background-color: lightgray;
+  border: 2px solid olivedrab;
   border-radius: 4px;
+  padding: .35rem;
+  font-weight: bolder;
+  color: rgb(58, 43, 136);
+  text-decoration: underline;
+}
+
+.home__heading {
+  color:rgb(118, 145, 65);
+  font-style: italic;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .mymodal {
@@ -16,7 +26,7 @@ hr.dotted {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  color:rgb(84, 114, 25);
   border: 1px solid #ccc;
   background: #fff;
   overflow: auto;
@@ -27,15 +37,45 @@ hr.dotted {
 
 .myoverlay {
   position: fixed;
-  top: 27%;
-  left: 25%;
+  top: 17%;
+  left: 15%;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
-  width: 50%;
-  height: 50%;
+  width: 68%;
+  height: 65%;
   border: 8px ridge olivedrab;
   border-radius: 4px;
+}
+
+.heading__modal {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.input__modal {
+  border: 2px solid olivedrab;
+  border-radius: 4px;
+}
+
+.submit__quote, .cancel__quote {
+  border: 2px solid olivedrab;
+  border-radius: 4px;
+  color:rgb(84, 114, 25);
+  background-color: rgb(238, 208, 131);
+  padding: .25rem;
+  font-weight: bold;
+}
+
+.submit__quote {
+  margin-right: 6rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.cancel__quote {
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .ReactModal__Overlay {
@@ -49,4 +89,55 @@ hr.dotted {
 
 .ReactModal__Overlay--before-close {
   opacity: 0;
+}
+
+.requestForm h2 {
+  color: olivedrab;
+  text-decoration: underline;
+}
+
+.requests__header {
+  color: olivedrab;
+  margin: 2rem;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.requests__list h4 {
+  color: rgb(84, 114, 25);
+  font-size: 1.5rem;
+}
+
+.requests__list {
+  color:rgb(84, 114, 25);
+  margin-left: 3rem;
+}
+
+.requestQuoteForm {
+  display:flex;
+  flex-direction: column;
+  margin: 10rem 5rem;
+  justify-content: center;
+  border: 8px ridge olivedrab;
+  border-radius: 8px;
+  background-color: rgb(249, 223, 157);
+  padding: 3rem;
+  color: olivedrab;
+  font-weight: bolder;
+}
+
+.btn-primary {
+  width: 10rem;
+  margin-left: 35%;
+  margin-right: auto;
+  margin-top: 1rem;
+  color: olivedrab;
+  font-weight: bolder;
+  padding: .5rem;
+  border: 2px solid olivedrab;
+  border-radius: 4px;
+}
+
+.item__requestList {
+  padding-bottom: .50rem;
 }

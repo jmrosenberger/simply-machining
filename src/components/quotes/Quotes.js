@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
+import "./Quotes.css"
 
 export const Quotes = () => {
     const [quote, updateQuote] = useState({})  // State variable for current quote object
@@ -31,6 +32,8 @@ export const Quotes = () => {
         []  // Empty dependency array only reacts to JSX initial rendering
     )
 
+    
+
 
     // ---- || Function to invoke when an quote price is accepted by customer as a result of clicking button || ---- \\
 
@@ -54,6 +57,7 @@ export const Quotes = () => {
             },
             body: JSON.stringify(modifyQuote)
         })
+        
             .then(() => {
                 history.push("/quotes")
             })
@@ -93,14 +97,14 @@ export const Quotes = () => {
 
     const QuoteButton = () => {
         if (parseInt(localStorage.getItem("machining_user")) === 1) {
-            return <button className="complete__button"
+            return <button className="quote__status"
                 id={quote.id}
                 hidden={quote.isAccepted !== "Yes"}
                 onClick={() => {
                     completeQuote(quote.id)
                 }}>Job Completed</button>
         } else if (quote.request?.userId === parseInt(localStorage.getItem("machining_user"))) {
-            return <button className="accept__button"
+            return <button className="quote__status"
                 id={quote.id}
                 hidden={quote.isCompleted === "Yes" || quote.isAccepted === "Yes"}
                 onClick={() => {
@@ -115,19 +119,19 @@ export const Quotes = () => {
 
     return (
         <>
-            <h1>Quote Details</h1>
+            <h1 className="quote__header">Quote Details</h1>
 
 
 
-            <section className="quote">
-                <h3 className="quote__requestId">Quote for Request# {quote.requestId}</h3>
-                <div className="quote__description">Service Needed: {quote.request?.description} made out of {quote.request?.material}</div>
-                <div className="quote__customer">Requested by Customer Id# {quote.request?.userId}</div>
-                <div className="quote__approver">Quoted By Approver Id# {quote.userId}</div>
-                <div className="quote__price">Price Quoted:  ${quote.priceQuoted}</div>
-                <div className="quote__dateQuoted">Date Quoted: {quote.dateQuoted}</div>
-                <div className="quote__isAccepted">Is Accepted: {quote.isAccepted}</div>
-                <div className="quote__isCompleted">Date Completed: {quote.dateCompleted}</div>
+            <section className="quote__details">
+                <h3 className="quote__heading">Quote for Request# {quote.requestId}</h3>
+                <div className="quote__item"><b>Service Needed:</b> {quote.request?.description} made out of {quote.request?.material}</div>
+                <div className="quote__item"><b>Requested by Customer Id#</b> {quote.request?.userId}</div>
+                <div className="quote__item"><b>Quoted By Approver Id#</b> {quote.userId}</div>
+                <div className="quote__item"><b>Price Quoted:</b>  ${quote.priceQuoted}</div>
+                <div className="quote__item"><b>Date Quoted: </b> {quote.dateQuoted}</div>
+                <div className="quote__item"><b>Is Accepted:</b> {quote.isAccepted}</div>
+                <div className="quote__item"><b>Date Completed:</b> {quote.dateCompleted}</div>
                 <QuoteButton />
 
             </section>
