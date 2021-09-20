@@ -10,14 +10,17 @@ export const Requests = () => {
     const [requests, updateRequests] = useState([])
     const [priceQuote, updatePriceQuote] = useState(0)
     const [quote, updateQuote] = useState({})
+    const [requestId, setRequestId] = useState(0)
 
 
 
     const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
 
-    const toggleModal = () => {
+    const toggleModal = (id) => {
+        setRequestId(id)
         setIsOpen(!isOpen)
     }
+
     const getRequestByUser = () => {
         return fetch("http://localhost:3719/requests?_expand=user")
             .then(res => res.json())
@@ -35,12 +38,10 @@ export const Requests = () => {
     )
     const history = useHistory()
 
-    const submitQuotePrice = (event, requestObj) => {
-        event.preventDefault()
-
+    const submitQuotePrice = () => {
         const newQuotePrice = {
             userId: parseInt(localStorage.getItem("machining_user")),
-            requestId: requestObj.id,
+            requestId: requestId,
             priceQuoted: priceQuote,
             isAccepted: false,
             isCompleted: false,
@@ -92,7 +93,6 @@ export const Requests = () => {
     )
 
 
-    console.log(priceQuote)
     return (
         <>
             <h3 className="requests__header">Current Requests</h3>
@@ -110,7 +110,7 @@ export const Requests = () => {
                                     <div className="item__requestList"><b>Date Requested: </b> {request.dateRequested}</div>
                                 </section>
                                 <button className="delete__request"
-                                    onClick={toggleModal}>Review Request
+                                    onClick={() => toggleModal(request.id)}>Review Request
                                 </button>
                                 <button className="delete__request"
                                     onClick={() => {
@@ -145,7 +145,7 @@ export const Requests = () => {
                                         <button
                                             className="submit__quote"
                                             id={request.id}
-                                            onClick={(event) => submitQuotePrice(event, request)}
+                                            onClick={() => submitQuotePrice()}
                                         >Submit Quote</button>
                                         <button className="cancel__quote" onClick={toggleModal}>Cancel</button>
                                     </Modal>

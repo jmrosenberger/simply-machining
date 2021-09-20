@@ -30,11 +30,13 @@ export const QuoteList = () => {
                                 <hr className={`dotted`}></hr>
                                 <section className={`quote ${quote.isCompleted ? "quote__completed" : "quote__incomplete"}`}>
                                 <h4 key={quote.id}>Quote For Request# {quote.requestId}</h4>
-                                <div className="item__quoteList"><b>Quoted By:</b> Approver Id# {quote.userId}</div>               
                                 <div className="item__quoteList"><b>Requested By:</b> Customer Id# {quote.request.userId}</div>     
+                                <div className="item__quoteList"><b>Date Requested:</b> {quote.request.dateRequested}</div>     
                                 <div className="item__quoteList"><b> Price Quoted:</b> ${quote.priceQuoted}</div>
                                 <div className="item__quoteList"><b>Date Quoted:</b> {quote.dateQuoted}</div>
+                                <div className="item__quoteList"><b>Quoted By:</b> Approver Id# {quote.userId}</div>               
                                 <div className="item__quoteList"><b>Is Accepted:</b> {quote.isAccepted}</div>             
+                                <div className="item__quoteList"><b>In Progress:</b> {quote.inProgress}</div>             
                                 <div className="item__quoteList"><b>Is Completed:</b> {quote.isCompleted}</div>           
                                 <div className="item__quoteList"><b>Date Completed:</b> {quote.dateCompleted}</div>
                             </section>
@@ -51,11 +53,13 @@ export const QuoteList = () => {
                                 <hr className={`dotted`}></hr>
                             <section className={`quote ${quote.isCompleted ? "quote__completed" : "quote__incomplete"}`}>
                                 <h4 key={quote.id}>Quote For Request# {quote.requestId}</h4>
-                                <div className="item__quoteList"><b>Quoted By:</b> Approver Id# {quote.userId}</div>               
                                 <div className="item__quoteList"><b>Requested By:</b> Customer Id# {quote.request.userId}</div>     
+                                <div className="item__quoteList"><b>Date Requested:</b> {quote.request.dateRequested}</div>     
                                 <div className="item__quoteList"><b> Price Quoted:</b> ${quote.priceQuoted}</div>
                                 <div className="item__quoteList"><b>Date Quoted:</b> {quote.dateQuoted}</div>
+                                <div className="item__quoteList"><b>Quoted By:</b> Approver Id# {quote.userId}</div>               
                                 <div className="item__quoteList"><b>Is Accepted:</b> {quote.isAccepted}</div>             
+                                <div className="item__quoteList"><b>In Progress:</b> {quote.inProgress}</div>             
                                 <div className="item__quoteList"><b>Is Completed:</b> {quote.isCompleted}</div>           
                                 <div className="item__quoteList"><b>Date Completed:</b> {quote.dateCompleted}</div>
                             </section>
