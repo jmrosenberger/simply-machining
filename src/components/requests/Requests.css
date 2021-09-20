@@ -5,7 +5,8 @@ hr.dotted {
   }
 
 .delete__request {
-  margin: 1rem 0;
+  margin-right: 1rem;
+  margin-top: 1rem;
   background-color: lightgray;
   border: 2px solid olivedrab;
   border-radius: 4px;

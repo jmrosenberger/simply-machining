@@ -99,7 +99,7 @@ export const Quotes = () => {
         if (parseInt(localStorage.getItem("machining_user")) === 1) {
             return <button className="quote__status"
                 id={quote.id}
-                hidden={quote.isAccepted !== "Yes"}
+                hidden={quote.isAccepted !== "Yes" || quote.isCompleted === "Yes"}
                 onClick={() => {
                     completeQuote(quote.id)
                 }}>Job Completed</button>
@@ -131,6 +131,7 @@ export const Quotes = () => {
                 <div className="quote__item"><b>Price Quoted:</b>  ${quote.priceQuoted}</div>
                 <div className="quote__item"><b>Date Quoted: </b> {quote.dateQuoted}</div>
                 <div className="quote__item"><b>Is Accepted:</b> {quote.isAccepted}</div>
+                <div className="quote__item"><b>Is Complete:</b> {quote.isCompleted}</div>
                 <div className="quote__item"><b>Date Completed:</b> {quote.dateCompleted}</div>
                 <QuoteButton />
 

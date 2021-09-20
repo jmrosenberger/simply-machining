@@ -19,25 +19,25 @@ export const Requests = () => {
         setIsOpen(!isOpen)
     }
     const getRequestByUser = () => {
-       return fetch("http://localhost:3719/requests?_expand=user")
-        .then(res => res.json())
-        .then(
-            (requestsArray) => {
-                updateRequests(requestsArray)
-            }
-        )
+        return fetch("http://localhost:3719/requests?_expand=user")
+            .then(res => res.json())
+            .then(
+                (requestsArray) => {
+                    updateRequests(requestsArray)
+                }
+            )
     }
     useEffect(
         () => {
-           getRequestByUser()
+            getRequestByUser()
         },
         []
     )
     const history = useHistory()
-        
+
     const submitQuotePrice = (event, requestObj) => {
         event.preventDefault()
-        
+
         const newQuotePrice = {
             userId: parseInt(localStorage.getItem("machining_user")),
             requestId: requestObj.id,
@@ -54,9 +54,9 @@ export const Requests = () => {
             body: JSON.stringify(newQuotePrice)
         }
         return fetch(`http://localhost:3719/quotes?_expand=request`, fetchOption)
-        .then(() => getRequestByUser())
-        
-       
+            .then(() => getRequestByUser())
+
+
     }
 
     const deleteRequest = (id) => {
@@ -72,16 +72,16 @@ export const Requests = () => {
             })
     }
 
-    
+
 
     const getQuoteObject = () => {
         return fetch("http://localhost:3719/quotes?_expand=request&_expand=user")
-        .then(res => res.json())
-        .then(
-            (quotesArray) => {
-                updateQuote(quotesArray)
-            }
-        )
+            .then(res => res.json())
+            .then(
+                (quotesArray) => {
+                    updateQuote(quotesArray)
+                }
+            )
     }
 
     useEffect(
@@ -110,12 +110,15 @@ export const Requests = () => {
                                     <div className="item__requestList"><b>Date Requested: </b> {request.dateRequested}</div>
                                 </section>
                                 <button className="delete__request"
+                                    onClick={toggleModal}>Review Request
+                                </button>
+                                <button className="delete__request"
                                     onClick={() => {
                                         deleteRequest(request.id)
-                                    }}>Delete Request</button>
+                                    }}>
+                                    Delete Request
+                                </button>
                                 <div className="app">
-                                    <button className="delete__request"
-                                        onClick={toggleModal}>Review Request</button>
                                     <Modal
                                         isOpen={isOpen}
                                         onRequestClose={toggleModal}
@@ -127,22 +130,22 @@ export const Requests = () => {
                                         <form>
                                             <fieldset>
                                                 <label htmlFor="Price">Quote Price: $</label>
-                                                <input 
-                                                onChange={
-                                                    (event) => {
-                                                        updatePriceQuote(parseInt(event.target.value))
+                                                <input
+                                                    onChange={
+                                                        (event) => {
+                                                            updatePriceQuote(parseInt(event.target.value))
+                                                        }
                                                     }
-                                                }
-                                                className="input__modal"
-                                                type="number" 
-                                                value={requests.priceQuoted} 
-                                                placeholder="Enter quote price here"/>
+                                                    className="input__modal"
+                                                    type="number"
+                                                    value={requests.priceQuoted}
+                                                    placeholder="Enter quote price here" />
                                             </fieldset>
                                         </form>
                                         <button
-                                        className="submit__quote"
-                                        id={request.id}
-                                        onClick={(event) => submitQuotePrice(event, request)}
+                                            className="submit__quote"
+                                            id={request.id}
+                                            onClick={(event) => submitQuotePrice(event, request)}
                                         >Submit Quote</button>
                                         <button className="cancel__quote" onClick={toggleModal}>Cancel</button>
                                     </Modal>
