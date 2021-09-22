@@ -6,6 +6,8 @@ import { Register } from "./auth/Register"
 import { Footer } from "./footer/Footer"
 import { NavBar } from "./nav/NavBar"
 
+import "./SimplyMachining.css"
+
 
 export const SimplyMachining = () => (
     <>

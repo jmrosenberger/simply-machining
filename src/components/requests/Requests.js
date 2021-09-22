@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Modal from "react-modal"
-import { useHistory, useParams } from "react-router-dom"
+import { useHistory, useParams, Link } from "react-router-dom"
 import "./Requests.css"
 
 
@@ -103,7 +103,6 @@ export const Requests = () => {
                     (request) => {
                         if (parseInt(localStorage.getItem("machining_user")) === 1) {
                             return <div key={request.id} className="requests__list">
-                                <hr className={`dotted`}></hr>
                                 <section>
                                     <h4 key={request.id}>Request Id# {request.id}</h4>
                                     <div className="item__requestList"><b>Requested By:</b> {request.user.name}</div>
@@ -150,14 +149,13 @@ export const Requests = () => {
                                             id={request.id}
                                             onClick={() => submitQuotePrice()}
                                         >Submit Quote</button>
-                                        <button className="cancel__quote" onClick={toggleModal}>Cancel</button>
+                                        <button className="cancel__quote" onClick={toggleModal}>Close</button>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>
                             </div>
                         } else if (request.user.id === parseInt(localStorage.getItem("machining_user"))) {
                             return <div key={request.id} className="requests__list">
-                                <hr className={`dotted`}></hr>
                                 <section>
                                     <h4 key={request.id}>Request Id# {request.id}</h4>
                                     <div className="item__requestList"><b>Requested By:</b> {request.user.name}</div>
@@ -176,6 +174,9 @@ export const Requests = () => {
                     }
                 )
             }
+            <button className="button__profileBack">
+                <Link to="/">Return Home</Link>
+            </button>
         </>
     )
 }

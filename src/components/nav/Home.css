@@ -1,6 +1,4 @@
 .container__home {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,22 +23,34 @@
   }
 
   .home__heading {
-      margin-top: 5rem;
-      margin-left: 1.5rem;
+      margin-top: 3rem;
       margin-bottom: -3rem;
       color: rgb(81, 79, 79);
+      text-shadow: 2px 2px 2px gray, 4px 4px 4px rgb(172, 172, 172), 6px 6px 6px rgb(203, 202, 202), 10px 10px 10px lightgray;
   }
 
   .request__inputForm {
       border: 4px ridge olivedrab;
       border-radius: 4px;
+      margin-top: 5rem;
       width: 25%;
       height: 50px;
-      background-color: rgb(234, 204, 130);
+      background-color: rgb(216, 215, 213);
       color: olivedrab;
-      font-size: 1rem;
-      font-weight: bold;
+      text-shadow: 1px 1px;
+      font-size: 1.25rem;
+      font-weight: bolder;
       position: fixed;
       left: 40%;
       top: 50%;
+  }
+
+  button:hover {
+    box-shadow:3px 3px rgb(81, 79, 79);
+      border-radius: 4px;
+      background-color: rgb(206, 201, 189);
+      color: rgb(100, 100, 222);
+      font-weight: bold;
+      text-shadow: .25px .25px .25px rgb(122, 122, 203), .50px .50px .50px rgb(87, 87, 215);
+      box-shadow: 3px 3px 3px gray, 6px 6px 6px rgb(187, 186, 186);
   }
