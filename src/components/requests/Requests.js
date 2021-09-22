@@ -44,7 +44,9 @@ export const Requests = () => {
             requestId: requestId,
             priceQuoted: priceQuote,
             isAccepted: false,
+            inProgress: false,
             isCompleted: false,
+            status: "ACCEPTED REQUEST FOR QUOTE",
             dateQuoted: Date()
         }
         const fetchOption = {
@@ -54,7 +56,7 @@ export const Requests = () => {
             },
             body: JSON.stringify(newQuotePrice)
         }
-        return fetch(`http://localhost:3719/quotes?_expand=request`, fetchOption)
+        return fetch(`http://localhost:3719/quotes?_sort=status&_order=asc&_expand=request`, fetchOption)
             .then(() => getRequestByUser())
 
 
@@ -136,6 +138,7 @@ export const Requests = () => {
                                                             updatePriceQuote(parseInt(event.target.value))
                                                         }
                                                     }
+                                                    autoFocus
                                                     className="input__modal"
                                                     type="number"
                                                     value={requests.priceQuoted}

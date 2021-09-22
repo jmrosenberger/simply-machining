@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import "./Admin.css"
 
 export const UserList = () => {
     const [users, assignUsers] = useState([])
@@ -26,14 +27,11 @@ export const UserList = () => {
                         (user) => {
                             if (user.id === parseInt(localStorage.getItem("machining_user"))) {
                                 return <div key={user.id}>
-                                <ul>
-                                <h4 key={user.id}>Name: {user.name}</h4>
-
-                                    <li><b>User Id#</b>: {user.id}</li><br/>
-                                    <li><b>Email</b>: {user.email}</li><br/>
-                                    <li><b>Address</b>: {user.address}</li><br/>
-                                    <li><b>Phone</b>: {user.phone}</li><br/>
-                                   </ul>
+                                    <div><b>Name: </b> {user.name}</div><br/>
+                                    <div><b>User Id#: </b> {user.id}</div><br/>
+                                    <div><b>Email: </b> {user.email}</div><br/>
+                                    <div><b>Address: </b> {user.address}</div><br/>
+                                    <div><b>Phone: </b> {user.phone}</div><br/>
                                    </div>
 
                             }
