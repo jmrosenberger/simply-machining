@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory, Link } from "react-router-dom"
 import "./Quotes.css"
 
 export const Quotes = () => {
@@ -127,7 +127,7 @@ export const Quotes = () => {
 
     const QuoteButton = () => {
         if (parseInt(localStorage.getItem("machining_user")) === 1) {
-            return <div className="buttons__jobStatus">
+            return <div className="button__jobStatus">
                 <button className="quote__status button__begin"
                     id={quote.id}
                     hidden={quote.isAccepted !== true || quote.isCompleted === true || quote.inProgress === true}
@@ -140,15 +140,23 @@ export const Quotes = () => {
                     onClick={() => {
                         completeQuote(quote.id)
                     }}>Job Completed</button>
+                <button className="quote__status quote__detailsBack">
+                    <Link to="/quotes"><b>Back To Quotes</b></Link>
+                </button>
             </div>
         } else if (quote.request?.userId === parseInt(localStorage.getItem("machining_user"))) {
-            return <button className="quote__status"
-                id={quote.id}
-                hidden={quote.isCompleted === "YES" || quote.isAccepted === "YES"}
-                onClick={() => {
-                    acceptQuote(quote.id)
-                }}>Accept Quote
-            </button>
+            return <div className="button__jobStatus">
+                <button className="quote__status"
+                    id={quote.id}
+                    hidden={quote.isCompleted === "YES" || quote.isAccepted === "YES"}
+                    onClick={() => {
+                        acceptQuote(quote.id)
+                    }}>Accept Quote
+                </button>
+                <button className="quote__status quote__detailsBack">
+                    <Link to="/quotes"><b>Back To Quotes</b></Link>
+                </button>
+            </div>
         } else {
             return "have a nice day"
         }
@@ -168,8 +176,8 @@ export const Quotes = () => {
                 <div className="quote__item"><b>Price Quoted: </b>  ${quote.priceQuoted}</div>
                 <div className="quote__item"><b>Quoted By: </b> {quote.user?.name}</div>
                 <div className="quote__item"><b>Quote Status: </b> {quote.status}</div>
-                <div className="quote__item"><b>Date Of Last Status Update: </b> {quote.date}</div>
-                <QuoteButton />
+                <div className="quote__item"><b>Date Of Last Status Update: </b> {quote.date}</div><br />
+                <div className="buttons__jobStatus"><QuoteButton /></div>
 
             </section>
         </>

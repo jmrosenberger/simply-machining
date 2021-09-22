@@ -99,7 +99,7 @@ hr.dotted {
 
 .requests__header {
   color: olivedrab;
-  margin: 2rem;
+  margin: -3rem auto 5rem 1rem;
   font-size: 2rem;
   text-decoration: underline;
 }
@@ -141,4 +141,8 @@ hr.dotted {
 
 .item__requestList {
   padding-bottom: .50rem;
+}
+
+.button__profileBack {
+  margin: 8rem auto 8rem -1rem;
 }

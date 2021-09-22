@@ -6,10 +6,10 @@
     bottom: 0;
     width: 100%;
     border: 2px solid olivedrab;
-    background-color: rgb(211, 160, 30, .50);
+    background-color: rgba(232, 200, 118, 0.92);
     color: olivedrab;
     text-align: center;
-    font-size: smaller;
+    font-size: .85rem;
     align-items: center;
   }
 

@@ -1,3 +1,8 @@
+  
+  
+  /*/  -----------------------------------------------------  /*/
+ /*/    -------  ||  STYLING FOR QUOTES LIST  ||  -------    /*/
+/*/  -----------------------------------------------------  /*/
 
 hr.dotted {
     border-top: 2px dotted #bbb;
@@ -14,20 +19,6 @@ hr.dotted {
 .quote__heading {
     color:rgb(84, 114, 25);
     font-size: 1.5rem;
-}
-
-
-
-.quote__details {
-  display:flex;
-  flex-direction: column;
-  margin: 5rem 5rem;
-  justify-content: center;
-  border: 8px ridge olivedrab;
-  border-radius: 8px;
-  background-color: rgb(255, 232, 173, .50);
-  padding: 1rem;
-  color: olivedrab;
 }
 
 .quote__item {
@@ -67,18 +58,16 @@ hr.dotted {
 }
 
 
-/* button in quote details */
-.quote__status {
-  background-color: lightgray;
-  border: 2px solid olivedrab;
-  border-radius: 4px;
-  padding: .40rem;
-  margin: 2rem 0;
-  font-weight: bolder;
-  color: rgb(58, 43, 136);
-  width: 10rem;
-  text-decoration: underline;
-}
+/* -------------------   ||  BREAK  ||  ------------------- */
+
+
+
+
+
+
+  /*/  -----------------------------------------------------  /*/
+ /*/    -- ||  CONDITIONAL STYLING FOR QUOTES LIST  || --    /*/
+/*/  -----------------------------------------------------  /*/
 
 
 /* when request has been quoted a price  */
@@ -88,11 +77,9 @@ hr.dotted {
     border-radius: 4px;
     padding: .5rem;
 }
-
 .quote__incompleteHeading {
   border: none;
 }
-
 
 /* when quoted price has been accepted */
 .quote__accepted {         
@@ -100,7 +87,6 @@ hr.dotted {
   border: 1px solid olivedrab;
   border-radius: 4px;
 }
-
 .quote__acceptedHeading {
   border: none;
 }
@@ -112,11 +98,9 @@ hr.dotted {
   border: 1px solid olivedrab;
   border-radius: 4px;
 }
-
 .quote__startedHeading {
   border: none;
 }
-
 
 /* when quote has been completed  */
 .quote__completed {
@@ -130,4 +114,49 @@ hr.dotted {
 .quote__completedHeading {
   color: gray;
 
+}
+
+/* -------------------   ||  BREAK  ||  ------------------- */
+
+
+
+
+
+  /*/  -----------------------------------------------------  /*/
+ /*/    ------  ||  STYLING FOR QUOTE DETAILS  ||  ------    /*/
+/*/  -----------------------------------------------------  /*/
+
+/* QUOTE DETAILS STYLING */
+.quote__details {
+  display:flex;
+  flex-direction: column;
+  margin: 5rem 5rem;
+  justify-content: center;
+  border: 8px ridge olivedrab;
+  border-radius: 8px;
+  background-color: rgb(255, 232, 173, .50);
+  padding: 1rem;
+  color: olivedrab;
+}
+
+.button__jobStatus {
+  /* border: 2px solid red; */
+  display: flex;
+  /* flex-direction: column; */ 
+  justify-content: space-between;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* button in quote details */
+.quote__status {
+  background-color: lightgray;
+  border: 2px solid olivedrab;
+  border-radius: 4px;
+  padding: .40rem;
+  margin: 2rem 0rem 2rem 0;
+  font-weight: bold;
+  color: rgb(58, 43, 136);
+  width: 10rem;
+  text-decoration: none;
 }
