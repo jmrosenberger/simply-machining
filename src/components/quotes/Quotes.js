@@ -44,10 +44,11 @@ export const Quotes = () => {
             userId: quote.userId,
             requestId: quote.requestId,
             priceQuoted: quote.priceQuoted,
-            dateQuoted: quote.dateQuoted,
-            isAccepted: "YES",
+            isAccepted: true,
             inProgress: false,
-            isCompleted: false
+            isCompleted: false,
+            status: "APPROVED QUOTED PRICE",
+            date: Date()
         }
 
         // Perform the PUT HTTP request to replace the resource
@@ -72,11 +73,11 @@ export const Quotes = () => {
             userId: quote.userId,
             requestId: quote.requestId,
             priceQuoted: quote.priceQuoted,
-            dateQuoted: quote.dateQuoted,
-            isAccepted: "YES",
-            inProgress: "YES",
+            isAccepted: true,
+            inProgress: true,
             isCompleted: false,
-            dateCompleted: Date()
+            status: "BEGINNING WORK / IN PROGRESS",
+            date: Date()
         }
 
         // Perform the PUT HTTP request to replace the resource
@@ -99,15 +100,15 @@ export const Quotes = () => {
             userId: quote.userId,
             requestId: quote.requestId,
             priceQuoted: quote.priceQuoted,
-            dateQuoted: quote.dateQuoted,
-            isAccepted: "YES",
-            inProgress: "NO",
-            isCompleted: "YES",
-            dateCompleted: Date()
+            isAccepted: true,
+            inProgress: false,
+            isCompleted: true,
+            status: "COMPLETED JOB",
+            date: Date()
         }
 
         // Perform the PUT HTTP request to replace the resource
-        fetch(`http://localhost:3719/quotes/${quoteId}`, {
+        fetch(`http://localhost:3719/quotes/${quoteId}?_expand=user`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -127,15 +128,15 @@ export const Quotes = () => {
     const QuoteButton = () => {
         if (parseInt(localStorage.getItem("machining_user")) === 1) {
             return <div className="buttons__jobStatus">
-                <button className="quote__status quote__begin"
+                <button className="quote__status button__begin"
                     id={quote.id}
-                    hidden={quote.isAccepted !== "YES" || quote.isCompleted === "YES"}
+                    hidden={quote.isAccepted !== true || quote.isCompleted === true || quote.inProgress === true}
                     onClick={() => {
                         beginQuote(quote.id)
                     }}>Begin Job</button>
-                <button className="quote__status quote__completed"
+                <button className="quote__status button__complete"
                     id={quote.id}
-                    hidden={quote.isAccepted !== "YES" || quote.isCompleted === "YES"}
+                    hidden={quote.inProgress !== true || quote.isCompleted === true}
                     onClick={() => {
                         completeQuote(quote.id)
                     }}>Job Completed</button>
@@ -162,16 +163,12 @@ export const Quotes = () => {
 
             <section className="quote__details">
                 <h3 className="quote__heading">Quote for Request# {quote.requestId}</h3>
-                <div className="quote__item"><b>Service Needed:</b> {quote.request?.description} made out of {quote.request?.material}</div>
-                <div className="quote__item"><b>Requested by Customer Id#</b> {quote.request?.userId}</div>
-                <div className="quote__item"><b>Date Requested: </b> {quote.request?.dateRequested}</div>
-                <div className="quote__item"><b>Price Quoted:</b>  ${quote.priceQuoted}</div>
-                <div className="quote__item"><b>Date Quoted: </b> {quote.dateQuoted}</div>
-                <div className="quote__item"><b>Quoted By Approver Id#</b> {quote.userId}</div>
-                <div className="quote__item"><b>Is Accepted:</b> {quote.isAccepted}</div>
-                <div className="quote__item"><b>Is Accepted:</b> {quote.isAccepted}</div>
-                <div className="quote__item"><b>In Progress:</b> {quote.inProgress}</div>
-                <div className="quote__item"><b>Date Completed:</b> {quote.dateCompleted}</div>
+                <div className="quote__item"><b>Service Needed: </b> {quote.request?.description} made out of {quote.request?.material}</div>
+                <div className="quote__item"><b>Requested by Customer Id# </b> {quote.request?.userId}</div>
+                <div className="quote__item"><b>Price Quoted: </b>  ${quote.priceQuoted}</div>
+                <div className="quote__item"><b>Quoted By: </b> {quote.user?.name}</div>
+                <div className="quote__item"><b>Quote Status: </b> {quote.status}</div>
+                <div className="quote__item"><b>Date Of Last Status Update: </b> {quote.date}</div>
                 <QuoteButton />
 
             </section>
