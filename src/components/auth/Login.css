@@ -25,7 +25,8 @@ fieldset {
 }
 
 .form-control {
-    display: block;
+    display: inline-flex;
+    flex-wrap: wrap;
     width: 94%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -43,18 +44,18 @@ fieldset {
 
 .container--login {
     text-align: center;
-    margin-top: 20rem;
+    /* margin-top: 20rem; */
 }
 
 .form--login {
     background-position-x: right;
     z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
+    min-height: 22rem;
+    min-width: 25rem;
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
-    border: 20px ridge goldenrod;
+    border: 10px ridge goldenrod;
     padding-left: 2rem;
     color: olivedrab;
 }
