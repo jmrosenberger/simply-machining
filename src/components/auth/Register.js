@@ -9,7 +9,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:3719/users?email=${user.email}`)
+        return fetch(`https://machining-api-e3mht.ondigitalocean.app/users?email=${user.email}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -18,7 +18,7 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:3719/users", {
+                    fetch("https://machining-api-e3mht.ondigitalocean.app/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"

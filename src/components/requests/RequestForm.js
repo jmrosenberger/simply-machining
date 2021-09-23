@@ -29,7 +29,7 @@ export const RequestForm = () => {
             },
             body: JSON.stringify(newRequest)
         }
-        return fetch("http://localhost:3719/requests", fetchOption)
+        return fetch("https://machining-api-e3mht.ondigitalocean.app/requests", fetchOption)
             .then(() => {
                 history.push("/requests")
             })

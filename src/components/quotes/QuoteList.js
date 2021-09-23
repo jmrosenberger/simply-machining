@@ -7,7 +7,7 @@ export const QuoteList = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:3719/quotes?_expand=user&_expand=request&_sort=status&_order=asc")
+            fetch("https://machining-api-e3mht.ondigitalocean.app/quotes?_expand=user&_expand=request&_sort=status&_order=asc")
                 .then(res => res.json())
                 .then(
                     (quotesArray) => {

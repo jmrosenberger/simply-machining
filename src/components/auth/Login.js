@@ -9,7 +9,7 @@ export const Login = () => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:3719/users?email=${email}`)
+        return fetch(`https://machining-api-e3mht.ondigitalocean.app/users?email=${email}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
