@@ -44,9 +44,10 @@ hr.dotted {
   font-weight: bolder;
 }
 
+/* HEADING FOR QUOTE LIST */
 .heading__quoteList {
   color: olivedrab;
-  margin: 2rem;
+  margin: -2rem 2rem 2rem 2rem;
   font-size: 2rem;
   text-decoration: underline;
 }

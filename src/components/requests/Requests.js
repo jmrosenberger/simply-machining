@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import Modal from "react-modal"
-import { useHistory, useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { confirmAlert } from "react-confirm-alert"
+import "../ReactConfirmAlert.css"
 import "./Requests.css"
 
 
@@ -11,10 +13,7 @@ export const Requests = () => {
     const [priceQuote, updatePriceQuote] = useState(0)
     const [quote, updateQuote] = useState({})
     const [requestId, setRequestId] = useState(0)
-
-
-
-    const [isOpen, setIsOpen] = useState(false)                 // ---- || Do I need to change 'useState(false)' to 'useState(true)' ?? || ---- //
+    const [isOpen, setIsOpen] = useState(false)                 
 
     const toggleModal = (id) => {
         setRequestId(id)
@@ -36,7 +35,6 @@ export const Requests = () => {
         },
         []
     )
-    const history = useHistory()
 
     const submitQuotePrice = () => {
         const newQuotePrice = {
@@ -62,6 +60,23 @@ export const Requests = () => {
 
     }
 
+    const confirmSubmitQuote = () => {
+        confirmAlert({
+            message: 'Are you sure you want to SUBMIT quote price?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { submitQuotePrice() }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ]
+        })
+
+    };
+
     const deleteRequest = (id) => {
         fetch(`http://localhost:3719/requests/${id}`, {
             method: "DELETE"
@@ -75,7 +90,22 @@ export const Requests = () => {
             })
     }
 
+    const confirmDelete = (id) => {
+        confirmAlert({
+            message: 'Are you sure you want to DELETE this request?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { deleteRequest(id) }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ]
+        })
 
+    };
 
     const getQuoteObject = () => {
         return fetch("http://localhost:3719/quotes?_expand=request&_expand=user")
@@ -93,7 +123,6 @@ export const Requests = () => {
         },
         []
     )
-
 
     return (
         <>
@@ -115,7 +144,7 @@ export const Requests = () => {
                                 </button>
                                 <button className="delete__request"
                                     onClick={() => {
-                                        deleteRequest(request.id)
+                                        confirmDelete(request.id)
                                     }}>
                                     Delete Request
                                 </button>
@@ -147,7 +176,7 @@ export const Requests = () => {
                                         <button
                                             className="submit__quote"
                                             id={request.id}
-                                            onClick={() => submitQuotePrice()}
+                                            onClick={() => confirmSubmitQuote()}
                                         >Submit Quote</button>
                                         <button className="cancel__quote" onClick={toggleModal}>Close</button>
                                     </Modal>
@@ -166,7 +195,7 @@ export const Requests = () => {
                                 <button className="delete__request"
 
                                     onClick={() => {
-                                        deleteRequest(request.id)
+                                        confirmDelete(request.id)
                                     }}>Delete Request</button>
                                 <hr className={`dotted`}></hr>
                             </div>

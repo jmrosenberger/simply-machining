@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useHistory, Link } from "react-router-dom"
+import { confirmAlert } from "react-confirm-alert"
 import "./Quotes.css"
 
 export const Quotes = () => {
@@ -8,7 +9,6 @@ export const Quotes = () => {
     const { quoteId } = useParams()  // Variable storing the route parameter
     const history = useHistory()
 
-    console.log(quoteId)
     // Fetch the individual quote when the parameter value changes
     useEffect(
         () => {
@@ -31,9 +31,6 @@ export const Quotes = () => {
         },
         []  // Empty dependency array only reacts to JSX initial rendering
     )
-
-
-
 
     // ---- || Function to invoke when an quote price is accepted by customer as a result of clicking button || ---- \\
 
@@ -65,6 +62,22 @@ export const Quotes = () => {
             })
     }
 
+    const confirmAccept = () => {
+        confirmAlert({
+            message: 'Are you sure you want to ACCEPT?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { acceptQuote() }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ]
+        })
+
+    };
 
     const beginQuote = () => {
 
@@ -93,6 +106,23 @@ export const Quotes = () => {
             })
     }
 
+    const confirmBegin = () => {
+        confirmAlert({
+            message: 'Are you sure you want to START JOB?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { beginQuote() }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ]
+        })
+
+    };
+
     const completeQuote = () => {
 
         // Construct a new object to replace the existing one in the API
@@ -119,9 +149,23 @@ export const Quotes = () => {
                 history.push("/quotes")
             })
     }
-    console.log(quote)
 
+    const confirmComplete = () => {
+        confirmAlert({
+            message: 'Are you sure you want to Complete Job?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { completeQuote() }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ]
+        })
 
+    };
 
     // ---- || This function conditionally renders 2 different buttons depending on whether an admin or customer is logged in || ---- \\
 
@@ -132,13 +176,13 @@ export const Quotes = () => {
                     id={quote.id}
                     hidden={quote.isAccepted !== true || quote.isCompleted === true || quote.inProgress === true}
                     onClick={() => {
-                        beginQuote(quote.id)
+                        confirmBegin(quote.id)
                     }}>Begin Job</button>
                 <button className="quote__status button__complete"
                     id={quote.id}
                     hidden={quote.inProgress !== true || quote.isCompleted === true}
                     onClick={() => {
-                        completeQuote(quote.id)
+                        confirmComplete(quote.id)
                     }}>Job Completed</button>
                 <button className="quote__status quote__detailsBack">
                     <Link to="/quotes"><b>Back To Quotes</b></Link>
@@ -148,9 +192,9 @@ export const Quotes = () => {
             return <div className="button__jobStatus">
                 <button className="quote__status"
                     id={quote.id}
-                    hidden={quote.isCompleted === "YES" || quote.isAccepted === "YES"}
+                    hidden={quote.isCompleted || quote.isAccepted}
                     onClick={() => {
-                        acceptQuote(quote.id)
+                        confirmAccept(quote.id)
                     }}>Accept Quote
                 </button>
                 <button className="quote__status quote__detailsBack">
@@ -162,13 +206,9 @@ export const Quotes = () => {
         }
     }
 
-
     return (
         <>
             <h1 className="quote__header">Quote Details</h1>
-
-
-
             <section className="quote__details">
                 <h3 className="quote__heading">Quote for Request# {quote.requestId}</h3>
                 <div className="quote__item"><b>Service Needed: </b> {quote.request?.description} made out of {quote.request?.material}</div>
@@ -178,7 +218,6 @@ export const Quotes = () => {
                 <div className="quote__item"><b>Quote Status: </b> {quote.status}</div>
                 <div className="quote__item"><b>Date Of Last Status Update: </b> {quote.date}</div><br />
                 <div className="buttons__jobStatus"><QuoteButton /></div>
-
             </section>
         </>
     )

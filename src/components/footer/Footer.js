@@ -16,11 +16,11 @@ export const Footer = () => {
                     <Link className="footer__link" to="/Contact">Contact</Link>
                 </p>
                 <p className="copyright footer__link">
-                     Copyright © {currentYear} JMRosenberger All Rights Reserved
+                    Copyright © {currentYear} JMRosenberger All Rights Reserved
                 </p>
                 <p className="github__link">
                     <a href="https://github.com/jmrosenberger" className="footer__link">
-                        <img src="GitHub-Mark-32px.png" alt="github_logo" width="15" height="15"/> 
+                        <img src="GitHub-Mark-32px.png" alt="github_logo" width="15" height="15" />
                         GitHub</a>
                 </p>
                 <p className="footer__logo">Created my logo at <a href="https://logomakr.com"> LogoMakr.com</a></p>
