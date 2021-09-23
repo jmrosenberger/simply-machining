@@ -21,7 +21,7 @@ export const Requests = () => {
     }
 
     const getRequestByUser = () => {
-        return fetch("http://localhost:3719/requests?_expand=user")
+        return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_expand=user")
             .then(res => res.json())
             .then(
                 (requestsArray) => {
@@ -54,7 +54,7 @@ export const Requests = () => {
             },
             body: JSON.stringify(newQuotePrice)
         }
-        return fetch(`http://localhost:3719/quotes?_sort=status&_order=asc&_expand=request`, fetchOption)
+        return fetch(`https://machining-api-e3mht.ondigitalocean.app/quotes?_sort=status&_order=asc&_expand=request`, fetchOption)
             .then(() => getRequestByUser())
 
 
@@ -78,11 +78,11 @@ export const Requests = () => {
     };
 
     const deleteRequest = (id) => {
-        fetch(`http://localhost:3719/requests/${id}`, {
+        fetch(`https://machining-api-e3mht.ondigitalocean.app/requests/${id}`, {
             method: "DELETE"
         })
             .then(() => {
-                return fetch("http://localhost:3719/requests?_expand=user")
+                return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_expand=user")
                     .then(response => response.json())
                     .then((requests) => {
                         updateRequests(requests)
@@ -108,7 +108,7 @@ export const Requests = () => {
     };
 
     const getQuoteObject = () => {
-        return fetch("http://localhost:3719/quotes?_expand=request&_expand=user")
+        return fetch("https://machining-api-e3mht.ondigitalocean.app/quotes?_expand=request&_expand=user")
             .then(res => res.json())
             .then(
                 (quotesArray) => {

@@ -12,7 +12,7 @@ export const Quotes = () => {
     // Fetch the individual quote when the parameter value changes
     useEffect(
         () => {
-            return fetch(`http://localhost:3719/quotes/${quoteId}?_expand=user&_expand=request`)
+            return fetch(`https://machining-api-e3mht.ondigitalocean.app/quotes/${quoteId}?_expand=user&_expand=request`)
                 .then(response => response.json())
                 .then((data) => {
                     updateQuote(data)
@@ -25,7 +25,7 @@ export const Quotes = () => {
     // Fetch all Requests
     useEffect(
         () => {
-            fetch(`http://localhost:3719/requests`)
+            fetch(`https://machining-api-e3mht.ondigitalocean.app/requests`)
                 .then(res => res.json())
                 .then(syncRequests)
         },
@@ -49,7 +49,7 @@ export const Quotes = () => {
         }
 
         // Perform the PUT HTTP request to replace the resource
-        fetch(`http://localhost:3719/quotes/${quoteId}`, {
+        fetch(`https://machining-api-e3mht.ondigitalocean.app/quotes/${quoteId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -94,7 +94,7 @@ export const Quotes = () => {
         }
 
         // Perform the PUT HTTP request to replace the resource
-        fetch(`http://localhost:3719/quotes/${quoteId}`, {
+        fetch(`https://machining-api-e3mht.ondigitalocean.app/quotes/${quoteId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -138,7 +138,7 @@ export const Quotes = () => {
         }
 
         // Perform the PUT HTTP request to replace the resource
-        fetch(`http://localhost:3719/quotes/${quoteId}?_expand=user`, {
+        fetch(`https://machining-api-e3mht.ondigitalocean.app/quotes/${quoteId}?_expand=user`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

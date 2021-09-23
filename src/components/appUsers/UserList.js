@@ -7,7 +7,7 @@ export const UserList = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:3719/users")
+            fetch("https://machining-api-e3mht.ondigitalocean.app/users")
                 .then(res => res.json())
                 .then(
                     (users) => {
