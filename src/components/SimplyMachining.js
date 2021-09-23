@@ -5,34 +5,31 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { Footer } from "./footer/Footer"
 import { NavBar } from "./nav/NavBar"
-
 import "./SimplyMachining.css"
 
 
 export const SimplyMachining = () => (
-    <>
-      <Route
-        render={() => {
-          if (localStorage.getItem("machining_user")) {
-            return (
-              <>
-                <NavBar />
-                <ApplicationViews />
-                <Footer />
-              </>
-            );
-          } else {
-            return <Redirect to="/login" />;
-          }
-        }}
-      />
-  
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
-    </>
-  );
-  
+  <>
+    <Route
+      render={() => {
+        if (localStorage.getItem("machining_user")) {
+          return (
+            <>
+              <NavBar />
+              <ApplicationViews />
+              <Footer />
+            </>
+          );
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </>
+);
