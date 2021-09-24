@@ -27,7 +27,7 @@ export const NavBar = () => {
                             <NavDropdown.Item href="/requests">My Requests</NavDropdown.Item>
                             <NavDropdown.Item href="/quotes">My Quotes</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#" onClick={
+                            <NavDropdown.Item href="/#" onClick={
                                 () => {
                                     localStorage.removeItem("machining_user")
                                 }
