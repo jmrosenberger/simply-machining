@@ -17,10 +17,10 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         existingUserCheck()
-            .then(exists => {
-                if (exists) {
-                    localStorage.setItem("machining_user", exists.id)
-                    history.push("/")
+                .then(exists => {
+                    if (exists) {
+                        localStorage.setItem("machining_user", exists.id)
+                        history.push("/")
                 } else {
                     existDialog.current.showModal()
                 }
