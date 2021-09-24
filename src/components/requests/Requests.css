@@ -10,7 +10,7 @@ hr.dotted {
 }
 .requests__header {
   color: olivedrab;
-  margin: -4rem auto 2rem .5rem;
+  margin: 4rem auto 2rem .5rem;
   font-size: 1.5rem;
   text-decoration: underline;
 }
@@ -23,6 +23,7 @@ hr.dotted {
 .requests__list {
   color:rgb(84, 114, 25);
   margin-left: 1.75rem;
+  margin-top: 3rem;
 }
 
 .item__requestList {
