@@ -17,10 +17,10 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         existingUserCheck()
-                .then(exists => {
-                    if (exists) {
-                        localStorage.setItem("machining_user", exists.id)
-                        history.push("/")
+            .then(exists => {
+                if (exists) {
+                    localStorage.setItem("machining_user", exists.id)
+                    history.push("/")
                 } else {
                     existDialog.current.showModal()
                 }
@@ -28,11 +28,15 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
+        <div>
+            <div>
+                
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
+            </div>
+        <main className="container--login">
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
@@ -57,6 +61,7 @@ export const Login = () => {
                 <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
+                            </div>
     )
 }
 
