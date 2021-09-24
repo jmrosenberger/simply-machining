@@ -1,26 +1,23 @@
-.navbar__container {
+
+
+/* .navbar__container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     border: 2px solid olivedrab;
-    background-color: rgba(232, 200, 118, 0.92);
-    /* padding: 2rem;  */
-    /* overflow: hidden; */
+    background-color: rgba(165, 150, 110, 0.92);
+    padding: 2rem; 
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-}
+} */
 
 .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     font-size: 1rem;
     padding: 0rem 1rem;
-    /* border: 2px solid red; */
-    margin-top: .5rem;
+    /* border: 2px solid blue; */
     margin-bottom: .25rem;
 }
 
@@ -35,9 +32,9 @@
 
 .navbar__logo {
     margin-right: 2.5rem;
-    margin-left: 1rem;
-    height: 35px;
-    width: 35px;
+    margin-left: -2rem;
+    height: 55px;
+    width: 55px;
     background-color: rgb(216, 216, 176);
     box-shadow: 3px 3px 3px 3px gray;
 }
@@ -46,11 +43,20 @@
     color: olivedrab;
     text-shadow: 2px 2px 2px goldenrod;
     text-decoration: none;
+    font-size: 1.5rem;
 
 }
 
+.me-auto {
+  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
-a:link {
+
+
+/* a:link {
     color: olivedrab;
   }
   
@@ -64,6 +70,6 @@ a:link {
   
   a:active {
     color: blue;
-  } 
+  }  */
 
   

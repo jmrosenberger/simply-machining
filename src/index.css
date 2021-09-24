@@ -1,8 +1,9 @@
 body {
-  margin-left: 3rem;
+  /* margin-left: 3rem;
   margin-right: 3rem;
   margin-top: 10rem;
-  margin-bottom: 7rem;
+  margin-bottom: 7rem; */
+  padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

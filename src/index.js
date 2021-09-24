@@ -4,6 +4,8 @@ import './index.css';
 import { SimplyMachining } from './components/SimplyMachining.js';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
