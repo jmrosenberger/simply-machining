@@ -23,7 +23,7 @@ export const NavBar = () => {
                         <Nav.Link href="/requests">Requests</Nav.Link>
                         <Nav.Link href="/quotes">Quotes</Nav.Link>
                         <NavDropdown title="Welcome" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
+                            <NavDropdown.Item href="/users">My Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/requests">My Requests</NavDropdown.Item>
                             <NavDropdown.Item href="/quotes">My Quotes</NavDropdown.Item>
                             <NavDropdown.Divider />

@@ -49,11 +49,11 @@ export const QuoteList = () => {
                         } else if (quote.request.userId === parseInt(localStorage.getItem("machining_user"))) {
                             return <div key={quote.id} className="quotes__list">
                                 <section className={`${quote.status === "COMPLETED JOB" ? "quote__completed" : "quote__incomplete"}
-                                ${quote.status === "APPROVED QUOTED PRICE" ? "quote__accepted" : "quote__notAaccepted"}
+                                ${quote.status === "CUSTOMER HAS APPROVED QUOTED PRICE" ? "quote__accepted" : "quote__notAaccepted"}
                                 ${quote.status === "BEGINNING WORK / IN PROGRESS" ? "quote__started" : "quote__notStarted"}
                                 `}>
                                     <h4 key={quote.id} className={`${quote.status === "COMPLETED JOB" ? "quote__completedHeading" : "quote__incompleteHeading"}
-                                ${quote.status === "APPROVED QUOTED PRICE" ? "quote__acceptedHeading" : "quote__notAaccepted"}
+                                ${quote.status === "CUSTOMER HAS APPROVED QUOTED PRICE" ? "quote__acceptedHeading" : "quote__notAaccepted"}
                                 ${quote.status === "BEGINNING WORK / IN PROGRESS" ? "quote__startedHeading" : "quote__notStarted"}
                                 `}>Quote For Request# {quote.requestId}</h4>
                                     <div className="item__quoteList"><b>Requested By: </b> Customer Id# {quote.request.userId}</div>
@@ -63,7 +63,7 @@ export const QuoteList = () => {
                                 <button className="btn__quoteList"
                                     id={quote.id}
                                 >
-                                    <Link to={`/quotes/${quote.id}`}>Check Status</Link>
+                                    <Link to={`/quotes/${quote.id}`}>Quote Details</Link>
                                 </button>
                                 <hr className={`dotted`}></hr>
                             </div>
