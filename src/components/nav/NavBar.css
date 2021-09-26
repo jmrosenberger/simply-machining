@@ -1,23 +1,7 @@
 
-
-/* .navbar__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: 2px solid olivedrab;
-    background-color: rgba(165, 150, 110, 0.92);
-    padding: 2rem; 
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-} */
-
 .navbar {
     font-size: 1rem;
     padding: 0rem 1rem;
-    /* border: 2px solid blue; */
     margin-bottom: .25rem;
 }
 
@@ -31,45 +15,29 @@
 }
 
 .navbar__logo {
+    position: fixed;
+    top: .55rem;
+    left: 1.55rem;
     margin-right: 2.5rem;
-    margin-left: -2rem;
-    height: 55px;
-    width: 55px;
-    background-color: rgb(216, 216, 176);
+    margin-left: -1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgb(202, 222, 248);
     box-shadow: 3px 3px 3px 3px gray;
 }
 
 .navbar a {
     color: olivedrab;
-    text-shadow: 2px 2px 2px goldenrod;
+    text-shadow: 2px 2px 2px lightsteelblue;
     text-decoration: none;
     font-size: 1.5rem;
 
 }
 
 .me-auto {
-  /* border: 2px solid red; */
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-left: 2rem;
 }
 
-
-
-/* a:link {
-    color: olivedrab;
-  }
-  
-  a:visited {
-    color: olivedrab;
-  }
-  
-  a:hover {
-    color: goldenrod;
-  }
-  
-  a:active {
-    color: blue;
-  }  */
-
-  

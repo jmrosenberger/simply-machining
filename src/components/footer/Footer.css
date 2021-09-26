@@ -5,23 +5,62 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    border: 2px solid olivedrab;
-    background-color: rgba(232, 200, 118, 0.92);
+    /* border: 2px solid olivedrab; */
+    background-color: rgb(202, 221, 247);
     color: olivedrab;
     text-align: center;
-    font-size: .85rem;
+    font-size: .65rem;
     align-items: center;
+    padding: 0.75rem .65rem 0 .65rem;
   }
 
 .footer__logo {
-      font-size: xx-small;
+      font-size: .45rem;
 }
 
 .github__link img {
       display: inline-block;
-      padding-right: 5px;
+      /* padding-right: 5px; */
 }
 
 .copyright {
-    font-size: xx-small;
+    font-size: .45rem;
+}
+
+@media only screen and (min-width: 600px) {
+      .footer__container {
+            font-size: 1rem;
+          }
+        
+        .footer__logo {
+              font-size: .65rem;
+        }
+        
+        .github__link img {
+              display: inline-block;
+              margin-right: .4rem;
+        }
+        
+        .copyright {
+            font-size: .7rem;
+        }
+}
+
+@media only screen and (min-width: 1000px) {
+      .footer__container {
+            font-size: 1rem;
+          }
+        
+        .footer__logo {
+              font-size: .85rem;
+        }
+        
+        .github__link img {
+              display: inline-block;
+              margin-right: .4rem;
+        }
+        
+        .copyright {
+            font-size: .9rem;
+        }
 }

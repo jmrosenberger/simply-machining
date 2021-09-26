@@ -22,7 +22,8 @@
 }
 .home__heading {
   margin-top: .5rem;
-  margin-bottom: -.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: -1.5rem;
   color: rgb(81, 79, 79);
   text-shadow: 2px 2px 2px gray, 4px 4px 4px rgb(172, 172, 172), 6px 6px 6px rgb(203, 202, 202), 10px 10px 10px lightgray;
 }
@@ -37,7 +38,7 @@
   font-weight: bolder;
   position: fixed;
   left: 37%;
-  top: 63%;
+  top: 52%;
 }
 button:hover {
   box-shadow:1px 1px rgb(81, 79, 79);
@@ -63,7 +64,7 @@ button:hover {
     font-size: 1.25rem;
     position: fixed;
     left: 36%;
-    top: 63%;
+    top: 53%;
   }
 }
 @media only screen and (min-width: 950px){
@@ -73,6 +74,7 @@ button:hover {
   .home__heading {
     margin-top: 3rem;
     margin-bottom: 2rem;
+    margin-left: 2rem;
   }
   .button__request {
     padding: .5rem;
@@ -90,7 +92,7 @@ button:hover {
   }
   .home__heading {
     margin-top: 3rem;
-    margin-bottom: -3rem;
+    margin-bottom: 3rem;
   }
   .button__request {
     padding: .5rem;
@@ -108,7 +110,8 @@ button:hover {
   }
   .home__heading {
     margin-top: 3rem;
-    margin-bottom: -3rem;
+    margin-bottom: 3rem;
+    margin-left: 5rem;
   }
   .button__request {
     padding: 1rem;
