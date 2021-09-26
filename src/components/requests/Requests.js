@@ -173,12 +173,14 @@ export const Requests = () => {
                                                     placeholder="Enter quote price here" />
                                             </fieldset>
                                         </form>
+                                        <div className="buttons__modal">
                                         <button
                                             className="submit__quote"
                                             id={request.id}
                                             onClick={() => confirmSubmitQuote()}
                                         >Submit Quote</button>
                                         <button className="cancel__quote" onClick={toggleModal}>Close</button>
+                                        </div>
                                     </Modal>
                                 </div>
                                 <hr className={`dotted`}></hr>

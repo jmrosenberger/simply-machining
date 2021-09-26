@@ -27,7 +27,8 @@ hr.dotted {
 }
 
 .quotes__list {
-    margin-left: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
     color:rgb(84, 114, 25);
 }
 
@@ -47,7 +48,7 @@ hr.dotted {
 /* HEADING FOR QUOTE LIST */
 .heading__quoteList {
   color: olivedrab;
-  margin: 5rem 2rem 2rem 2rem;
+  margin: 5rem 2rem 2rem 1rem;
   font-size: 2rem;
   text-decoration: underline;
 }
@@ -57,6 +58,10 @@ hr.dotted {
 .item__quoteList {
     padding-bottom: .35rem;
 }
+
+/* button.button__returnHome {
+  margin: 0 0 5rem 0;
+} */
 
 
 /* -------------------   ||  BREAK  ||  ------------------- */
@@ -131,15 +136,18 @@ hr.dotted {
 .quote__details {
   display:flex;
   flex-direction: column;
-  margin: 5rem 5rem;
+  margin: 2rem 1rem;
   justify-content: center;
   border: 8px ridge olivedrab;
   border-radius: 8px;
-  background-color: rgb(255, 232, 173, .50);
+  background-color: rgb(212, 229, 250);
   padding: 1rem;
   color: olivedrab;
 }
-
+h1.quote__header {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
 .button__jobStatus {
   /* border: 2px solid red; */
   display: flex;
@@ -154,10 +162,21 @@ hr.dotted {
   background-color: lightgray;
   border: 2px solid olivedrab;
   border-radius: 4px;
-  padding: .40rem;
-  margin: 2rem 0rem 2rem 0;
+  padding: .20rem;
+  margin: 1rem;
   font-weight: bold;
   color: rgb(58, 43, 136);
   width: 10rem;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 700px) {
+  .quote__details {
+    margin: 5rem 10rem;
+  }
+  h1.quote__header {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+  }
 }

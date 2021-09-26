@@ -71,9 +71,12 @@ export const QuoteList = () => {
                     }
                 )
             }
+            <div className="button__returnHome">
+
             <button className="button__profileBack">
                 <Link to="/">Return Home</Link>
             </button>
+            </div>
         </>
     )
 }
