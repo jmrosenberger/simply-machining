@@ -44,7 +44,7 @@ export const Quotes = () => {
             isAccepted: true,
             inProgress: false,
             isCompleted: false,
-            status: "APPROVED QUOTED PRICE",
+            status: "CUSTOMER HAS APPROVED QUOTED PRICE",
             date: Date()
         }
 
