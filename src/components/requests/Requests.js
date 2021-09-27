@@ -45,7 +45,7 @@ export const Requests = () => {
             inProgress: false,
             isCompleted: false,
             status: "ACCEPTED REQUEST FOR QUOTE",
-            dateQuoted: Date()
+            date: Date()
         }
         const fetchOption = {
             method: "POST",
@@ -66,12 +66,12 @@ export const Requests = () => {
             buttons: [
                 {
                     label: 'Yes',
-                    onClick: () => { submitQuotePrice() }
+                    onClick: () => {{ submitQuotePrice() } {toggleModal()}}
                 },
                 {
                     label: 'No',
                     onClick: () => alert('Click No')
-                }
+                },
             ]
         })
 
