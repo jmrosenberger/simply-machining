@@ -8,7 +8,6 @@ body {
 
 fieldset {
     min-width: 0;
-    /* margin-right: 1rem; */
     border: none;
 }
 
@@ -90,199 +89,26 @@ fieldset {
 
 .button__register {
     margin-top: .5rem;
-    background-color: rgb(226, 202, 141)
+    background-color: rgb(217, 225, 235);
+    color: olivedrab;
+    font-weight: bold;
 }
 
 
 
 
-/* RESPONSIVE DESIGN  */
-
+  /*/  ---------------------------------------------  /*/
+ /*/    ------  ||  RESPONSIVE DESIGN  ||  ------    /*/
+/*/  ---------------------------------------------  /*/
 
 
 @media only screen and (min-width: 600px) {
     .h1, h1 {
         font-size: 2.50rem;
     }
-    fieldset {
-        min-width: 0;
-        padding: 1rem .25rem;
-        margin-right: 2rem;
-        border: none;
-    }
-    .form--login {
-        display: inline-block;
-        margin: 2rem auto;
-        text-align: left;
-        background-position-x: right;
-        z-index: 1;
-        min-height: 15rem;
-        min-width: 10rem;
-        background-blend-mode: overlay;
-        background-repeat: no-repeat;
-        padding-left: 1rem;
-    }
-    .form--login > fieldset > input[type="email"] {
-        width: 94%;
-    }
-    .form-control {
-        display: inline-flex;
-        flex-wrap: wrap;
-        width: 94%;
-        height: calc(1.5em + .75rem + 2px);
-        padding: .375rem 1.5rem;
-        font-size: 1.25rem;
-        font-weight: 400;
-        line-height: 1.5;
-        background-clip: padding-box;
-    }
     .container--login {
         margin-top: 15rem;
     }
-    .button--close {
-        position: relative;
-        bottom: -2rem;
-    }
-    .dialog {
-        min-width: 15rem;
-        min-height: 5rem;
-    }
-    .button__submit {
-        margin-bottom: 1rem;
-    }
-    .form__register {
-        margin-top: 1rem;
-    }
 }
 
-@media only screen and (min-width: 900px) {
-    .h1, h1 {
-        font-size: 3rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-    fieldset {
-        min-width: 0;
-        margin-right: .1rem;
-        margin-left: 1rem;
-        border: none;
-    }
-    .form--login {
-        display: inline-block;
-        margin: 2rem auto;
-        text-align: left;
-        background-position-x: right;
-        z-index: 1;
-        min-height: 20rem;
-        min-width: 15rem;
-        background-blend-mode: overlay;
-        background-repeat: no-repeat;
-        padding-left: .5rem;
-    }
-    .form--login h2 {
-        font-size: 2rem;
-        margin-left: 1rem;
-    }
-    .form--login > fieldset > input[type="email"] {
-        width: 89%;
-        margin-left: .2rem;
-    }
-    .label--login {
-        width: 10rem;
-        display: inline-block;
-    }
-    .form-control {
-        display: inline-flex;
-        flex-wrap: wrap;
-        margin-right: 3rem;
-        width: 89%;
-        height: calc(1.5em + .75rem + 2px);
-        padding: .375rem 1.5rem;
-        font-size: 1.25rem;
-        font-weight: 400;
-        line-height: 1.5;
-        background-clip: padding-box;
-    }
-    .container--login {
-        margin-top: 15rem;
-    }
-    .button--close {
-        position: relative;
-        bottom: -2rem;
-    }
-    .dialog {
-        min-width: 15rem;
-        min-height: 5rem;
-    }
-    .form__register {
-        margin-top: 5rem;
-    }
-}
 
-@media only screen and (min-width: 1300px) {
-    .h1, h1 {
-        font-size: 3rem;
-        margin-left: .5rem;
-        margin-right: 1rem;
-    }
-    fieldset {
-        min-width: 0;
-        margin-right: 1.5rem;
-        margin-left: .5rem;
-        border: none;
-    }
-    .form--login {
-        display: inline-block;
-        margin: 2rem auto;
-        text-align: left;
-        background-position-x: right;
-        z-index: 1;
-        min-height: 20rem;
-        min-width: 15rem;
-        background-blend-mode: overlay;
-        background-repeat: no-repeat;
-        padding-left: 1rem;
-    }
-    .form--login h2 {
-        font-size: 2rem;
-        margin-left: .5rem;
-    }
-    .form--login > fieldset > input[type="email"] {
-        width: 94%;
-        margin-left: .1rem;
-        margin-right: 2rem;
-    }
-    .label--login {
-        width: 10rem;
-        display: inline-block;
-    }
-    .form-control {
-        display: inline-flex;
-        flex-wrap: wrap;
-        margin-right: 3rem;
-        width: 94%;
-        height: calc(2.5em + .75rem + 2px);
-        padding: .375rem 1.5rem;
-        font-size: 1.25rem;
-        font-weight: 400;
-        line-height: 1.5;
-        background-clip: padding-box;
-    }
-    .container--login {
-        margin-top: 13rem;
-    }
-    .button--close {
-        position: relative;
-        bottom: -2rem;
-    }
-    .dialog {
-        min-width: 15rem;
-        min-height: 5rem;
-    }
-    .button__submit {
-        margin-bottom: 2rem;
-    }
-    .form__register {
-        margin-top: 1rem;
-    }
-}

@@ -33,42 +33,30 @@ hr.dotted {
 }
 
 .quotes__list h4 {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 
 .btn__quoteList {
-  margin-top: .5rem;
-  background-color: lightgray;
-  border: 2px solid olivedrab;
-  border-radius: 4px;
-  padding: .40rem;
-  font-weight: bolder;
+    margin-top: .5rem;
+    background-color: lightgray;
+    border: 2px solid olivedrab;
+    border-radius: 4px;
+    padding: .40rem;
+    font-weight: bolder;
 }
 
 /* HEADING FOR QUOTE LIST */
 .heading__quoteList {
-  color: olivedrab;
-  margin: 5rem 2rem 2rem 1rem;
-  font-size: 2rem;
-  text-decoration: underline;
+    color: olivedrab;
+    margin: 5rem 2rem 2rem 1rem;
+    font-size: 2rem;
+    text-decoration: underline;
 }
-
 
 /* list items in quote list  */
 .item__quoteList {
     padding-bottom: .35rem;
 }
-
-/* button.button__returnHome {
-  margin: 0 0 5rem 0;
-} */
-
-
-/* -------------------   ||  BREAK  ||  ------------------- */
-
-
-
-
 
 
   /*/  -----------------------------------------------------  /*/
@@ -84,49 +72,43 @@ hr.dotted {
     padding: .5rem;
 }
 .quote__incompleteHeading {
-  border: none;
+    border: none;
 }
 
 /* when quoted price has been accepted */
 .quote__accepted {         
-  background-color: lightgoldenrodyellow;
-  border: 1px solid olivedrab;
-  border-radius: 4px;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid olivedrab;
+    border-radius: 4px;
 }
 .quote__acceptedHeading {
-  border: none;
+    border: none;
 }
 
 /* when quote work is in progress  */
 .quote__started {
-  background-color: rgb(204, 255, 204);
-  color: rgb(96, 96, 197);
-  border: 1px solid olivedrab;
-  border-radius: 4px;
+    background-color: rgb(204, 255, 204);
+    color: rgb(96, 96, 197);
+    border: 1px solid olivedrab;
+    border-radius: 4px;
 }
 .quote__startedHeading {
-  border: none;
+    border: none;
 }
 
 /* when quote has been completed  */
 .quote__completed {
-  background-color: lightgrey;
-  color: gray;
-  border: 1px solid olivedrab;
-  border-radius: 4px;
-  padding: .5rem;
+    background-color: lightgrey;
+    color: gray;
+    border: 1px solid olivedrab;
+    border-radius: 4px;
+    padding: .5rem;
 
 }
 .quote__completedHeading {
   color: gray;
 
 }
-
-/* -------------------   ||  BREAK  ||  ------------------- */
-
-
-
-
 
   /*/  -----------------------------------------------------  /*/
  /*/    ------  ||  STYLING FOR QUOTE DETAILS  ||  ------    /*/

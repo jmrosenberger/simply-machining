@@ -48,7 +48,6 @@ button.button__profileBack {
   width: 8rem;
 }
 
-/* ????? */
 .home__heading {
   color:rgb(118, 145, 65);
   font-style: italic;
@@ -175,19 +174,9 @@ border-radius: 4px;
  /* //  ------------------------  // */
 
   .requests__header {
-    color: olivedrab;
     margin: 5rem auto 2rem 1rem;
     font-size: 2rem;
   }
-
-    
-  /* ????? */
-  .home__heading {
-    color:rgb(118, 145, 65);
-    font-style: italic;
-    font-family:Arial, Helvetica, sans-serif;
-  }
-
 
     /* //  ------------------------  // */
    /* //    ----    MODAL   ----    // */
@@ -226,19 +215,6 @@ border-radius: 4px;
 
 @media only screen and (min-width: 1000px){
 
-   /* //  ------------------------  // */
-  /* //     REQUEST LIST STYLING   // */
- /* //  ------------------------  // */
-
-
-  /* ????? */
-  .home__heading {
-    color:rgb(118, 145, 65);
-    font-style: italic;
-    font-family:Arial, Helvetica, sans-serif;
-  }
-
-
     /* //  ------------------------  // */
    /* //    ----    MODAL   ----    // */
   /* //  ------------------------  // */
@@ -256,12 +232,5 @@ border-radius: 4px;
     outline: none;
     padding: 20px;
   }
-
-
-
-    /* //  ------------------------  // */
-   /* //    REQUEST FORM STYLING    // */
-  /* //  ------------------------  // */
-
 }
 
