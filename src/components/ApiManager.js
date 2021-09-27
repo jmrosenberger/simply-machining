@@ -17,6 +17,6 @@ export const getSortQuotesByDateNewer = () => {
 }
 
 export const getAllRequests = () => {
-    return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_expand=user")
+    return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_sort=id&_order=desc&_expand=user")
         .then(res => res.json())
 }

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getAllQuotes, getSortQuotesByDateNewer, getSortQuotesByDateOlder } from "../ApiManager"
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+import { getAllQuotes } from "../ApiManager"
 import "./Quotes.css"
 
 export const QuoteList = () => {
     const [quotes, updateQuotes] = useState([])
-    const [sortedQuotes, setSortedQuotes] = useState([])
 
     useEffect(
         () => {
@@ -21,42 +18,9 @@ export const QuoteList = () => {
         []
     )
 
-    const newerQuotes = () => {
-
-        getSortQuotesByDateNewer()
-            .then(
-                (sortedQuotes) => {
-                    setSortedQuotes(sortedQuotes)
-                }
-            )
-        return sortedQuotes
-    }
-    const olderQuotes = () => {
-
-        getSortQuotesByDateOlder()
-            .then(
-                (sortedQuotes) => {
-                    setSortedQuotes(sortedQuotes)
-                }
-            )
-        return sortedQuotes
-    }
-
-
-
-
     return (
         <>
             <h3 className="heading__quoteList">Quote List</h3>
-            <DropdownButton id="dropdown-basic-button" title="Sort Quotes By...">
-                <Dropdown.Item onClick={() => {
-                    olderQuotes(sortedQuotes)
-                }}>Older</Dropdown.Item>
-                <Dropdown.Item onClick={() => {
-                    newerQuotes(sortedQuotes)
-                }}>Newer</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Status</Dropdown.Item>
-            </DropdownButton>
             {
                 quotes.map(
                     (quote) => {

@@ -66,12 +66,12 @@ export const Requests = () => {
             buttons: [
                 {
                     label: 'Yes',
-                    onClick: () => { submitQuotePrice() }
+                    onClick: () => {{ submitQuotePrice() } {toggleModal()}}
                 },
                 {
                     label: 'No',
                     onClick: () => alert('Click No')
-                }
+                },
             ]
         })
 
