@@ -45,7 +45,7 @@ export const Requests = () => {
             inProgress: false,
             isCompleted: false,
             status: "ACCEPTED REQUEST FOR QUOTE",
-            dateQuoted: Date()
+            date: Date()
         }
         const fetchOption = {
             method: "POST",
