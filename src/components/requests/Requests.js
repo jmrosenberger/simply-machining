@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Modal from "react-modal"
 import { Link } from "react-router-dom"
 import { confirmAlert } from "react-confirm-alert"
+import { getAllQuotes, getAllRequests } from "../ApiManager"
 import "../ReactConfirmAlert.css"
 import "./Requests.css"
 
@@ -21,8 +22,7 @@ export const Requests = () => {
     }
 
     const getRequestByUser = () => {
-        return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_expand=user")
-            .then(res => res.json())
+            getAllRequests()
             .then(
                 (requestsArray) => {
                     updateRequests(requestsArray)
@@ -82,8 +82,7 @@ export const Requests = () => {
             method: "DELETE"
         })
             .then(() => {
-                return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_expand=user")
-                    .then(response => response.json())
+                getAllRequests()
                     .then((requests) => {
                         updateRequests(requests)
                     })
@@ -108,8 +107,7 @@ export const Requests = () => {
     };
 
     const getQuoteObject = () => {
-        return fetch("https://machining-api-e3mht.ondigitalocean.app/quotes?_expand=request&_expand=user")
-            .then(res => res.json())
+        getAllQuotes()
             .then(
                 (quotesArray) => {
                     updateQuote(quotesArray)
