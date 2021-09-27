@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { getAllUsers } from "../ApiManager"
 import "./Users.css"
 
 export const UserList = () => {
@@ -7,8 +8,7 @@ export const UserList = () => {
 
     useEffect(
         () => {
-            fetch("https://machining-api-e3mht.ondigitalocean.app/users")
-                .then(res => res.json())
+            getAllUsers()
                 .then(
                     (users) => {
                         assignUsers(users)

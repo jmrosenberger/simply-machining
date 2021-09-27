@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { getAllQuotes } from "../ApiManager"
 import "./Quotes.css"
 
 export const QuoteList = () => {
@@ -7,8 +8,7 @@ export const QuoteList = () => {
 
     useEffect(
         () => {
-            fetch("https://machining-api-e3mht.ondigitalocean.app/quotes?_expand=user&_expand=request&_sort=status&_order=asc")
-                .then(res => res.json())
+            getAllQuotes()
                 .then(
                     (quotesArray) => {
                         updateQuotes(quotesArray)
