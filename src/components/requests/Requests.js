@@ -44,7 +44,7 @@ export const Requests = () => {
             isAccepted: false,
             inProgress: false,
             isCompleted: false,
-            status: "REQUEST HAS BEEN QUOTED",
+            status: "ACCEPTED REQUEST FOR QUOTE",
             dateQuoted: Date()
         }
         const fetchOption = {

@@ -5,7 +5,6 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    /* border: 2px solid olivedrab; */
     background-color: rgb(202, 221, 247);
     color: olivedrab;
     text-align: center;
@@ -20,7 +19,6 @@
 
 .github__link img {
       display: inline-block;
-      /* padding-right: 5px; */
 }
 
 .copyright {
@@ -30,37 +28,26 @@
 @media only screen and (min-width: 600px) {
       .footer__container {
             font-size: 1rem;
-          }
+      }
         
-        .footer__logo {
-              font-size: .65rem;
-        }
-        
-        .github__link img {
-              display: inline-block;
-              margin-right: .4rem;
-        }
-        
-        .copyright {
+      .footer__logo {
+            font-size: .65rem;
+      }
+
+      .github__link img {
+            margin-right: .4rem;
+      }
+
+      .copyright {
             font-size: .7rem;
-        }
+      }
 }
 
 @media only screen and (min-width: 1000px) {
-      .footer__container {
-            font-size: 1rem;
-          }
-        
-        .footer__logo {
-              font-size: .85rem;
-        }
-        
-        .github__link img {
-              display: inline-block;
-              margin-right: .4rem;
-        }
-        
-        .copyright {
+      .footer__logo {
+            font-size: .85rem;
+      }
+      .copyright {
             font-size: .9rem;
-        }
+      }
 }
