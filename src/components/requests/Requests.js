@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import Modal from "react-modal"
 import { Link } from "react-router-dom"
 import { confirmAlert } from "react-confirm-alert"
-import { getAllQuotes, getAllRequests } from "../ApiManager"
+import { getAllQuotes, getAllRequests, getDeleteRequest } from "../ApiManager"
 import "../ReactConfirmAlert.css"
 import "./Requests.css"
 
@@ -35,6 +35,34 @@ export const Requests = () => {
         },
         []
     )
+
+    const deleteRequest = (id) => {
+        getDeleteRequest(id)
+            .then(() => {
+                getAllRequests()
+                    .then((requests) => {
+                        updateRequests(requests)
+                    })
+            })
+    }
+
+    const confirmDelete = (id) => {
+        confirmAlert({
+            message: 'Are you sure you want to DELETE this request?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { deleteRequest(id) }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('Click No')
+                }
+            ]
+        })
+
+    };
+
 
     const submitQuotePrice = () => {
         const newQuotePrice = {
@@ -77,34 +105,7 @@ export const Requests = () => {
 
     };
 
-    const deleteRequest = (id) => {
-        fetch(`https://machining-api-e3mht.ondigitalocean.app/requests/${id}`, {
-            method: "DELETE"
-        })
-            .then(() => {
-                getAllRequests()
-                    .then((requests) => {
-                        updateRequests(requests)
-                    })
-            })
-    }
-
-    const confirmDelete = (id) => {
-        confirmAlert({
-            message: 'Are you sure you want to DELETE this request?',
-            buttons: [
-                {
-                    label: 'Yes',
-                    onClick: () => { deleteRequest(id) }
-                },
-                {
-                    label: 'No',
-                    onClick: () => alert('Click No')
-                }
-            ]
-        })
-
-    };
+    
 
     const getQuoteObject = () => {
         getAllQuotes()

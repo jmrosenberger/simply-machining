@@ -41,3 +41,8 @@
   margin-left: 2rem;
 }
 
+/* This allows the USERS NAME to wrap and remain visible when viewed on mobile device */
+a#basic-nav-dropdown.dropdown-toggle.nav-link {
+    white-space: normal;
+}
+

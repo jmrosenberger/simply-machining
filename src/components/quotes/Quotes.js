@@ -3,6 +3,7 @@ import { useParams, useHistory, Link } from "react-router-dom"
 import { confirmAlert } from "react-confirm-alert"
 import "./Quotes.css"
 
+
 export const Quotes = () => {
     const [quote, updateQuote] = useState({})  // State variable for current quote object
     const [requests, syncRequests] = useState([])  // State variable for array of requests
