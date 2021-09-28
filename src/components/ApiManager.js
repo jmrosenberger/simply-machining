@@ -20,3 +20,9 @@ export const getAllRequests = () => {
     return fetch("https://machining-api-e3mht.ondigitalocean.app/requests?_sort=id&_order=desc&_expand=user")
         .then(res => res.json())
 }
+
+export const getDeleteRequest = (id) => {
+    return fetch(`https://machining-api-e3mht.ondigitalocean.app/requests/${id}`, {
+        method: "DELETE"
+    })
+}

@@ -104,14 +104,16 @@ button.button__profileBack {
 .buttons__modal {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
+
 .submit__quote, .cancel__quote {
   border: 2px solid olivedrab;
   border-radius: 4px;
   color:rgb(84, 114, 25);
   background-color: rgb(197, 221, 252);
   font-weight: bold;
-  font-size: .5rem;
+  font-size: .6rem;
   margin: .5rem;
   width: 4rem;
   height: 2rem;
