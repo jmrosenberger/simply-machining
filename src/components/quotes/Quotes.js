@@ -10,6 +10,8 @@ export const Quotes = () => {
     const { quoteId } = useParams()  // Variable storing the route parameter
     const history = useHistory()
 
+    
+
     // Fetch the individual quote when the parameter value changes
     useEffect(
         () => {
@@ -32,6 +34,9 @@ export const Quotes = () => {
         },
         []  // Empty dependency array only reacts to JSX initial rendering
     )
+
+   
+
 
     // ---- || Function to invoke when an quote price is accepted by customer as a result of clicking button || ---- \\
 
@@ -57,7 +62,6 @@ export const Quotes = () => {
             },
             body: JSON.stringify(modifyQuote)
         })
-
             .then(() => {
                 history.push("/quotes")
             })
