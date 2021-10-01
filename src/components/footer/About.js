@@ -19,7 +19,9 @@ export const About = () => {
                             src="machine_shop_1.png"
                         />
                         <Figure.Caption>
-                            Simply Machining® is a small operation
+                            Simply Machining® is a small operation 
+                            that far exceeds industry standards to fit 
+                            your needs
                         </Figure.Caption>
                     </Figure>
                 </div>
