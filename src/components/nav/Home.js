@@ -7,7 +7,7 @@ export const HomePage = () => {
     const history = useHistory()
 
     const conditionalButton = () => {
-        if (parseInt(localStorage.getItem("machining_user")) === 1) {
+        if (parseInt(localStorage.getItem("machining_user")) === 3) {
             return <button className="button__request"
                 hidden
                 id="request__inputForm"

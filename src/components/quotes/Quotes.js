@@ -175,7 +175,7 @@ export const Quotes = () => {
     // ---- || This function conditionally renders 2 different buttons depending on whether an admin or customer is logged in || ---- \\
 
     const QuoteButton = () => {
-        if (parseInt(localStorage.getItem("machining_user")) === 1) {
+        if (parseInt(localStorage.getItem("machining_user")) === 3) {
             return <div className="button__jobStatus">
                 <button className="quote__status button__begin"
                     id={quote.id}
