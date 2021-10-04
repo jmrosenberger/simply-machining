@@ -129,7 +129,7 @@ export const Requests = () => {
             {
                 requests.map(
                     (request) => {
-                        if (parseInt(localStorage.getItem("machining_user")) === 1) {
+                        if (parseInt(localStorage.getItem("machining_user")) === 3) {
                             return <div key={request.id} className="requests__list">
                                 <section>
                                     <h4 key={request.id}>Request Id# {request.id}</h4>
